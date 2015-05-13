@@ -1,4 +1,3 @@
-require 'rest_client'
 require 'instagram'
 
 class Feed < ActiveRecord::Base
