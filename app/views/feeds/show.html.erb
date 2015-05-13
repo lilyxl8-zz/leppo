@@ -1,0 +1,14 @@
+<%= @feed.ig_user %>
+
+<%= @feed.get_posts %>
+
+<% @feed.posts.each do |post| %>
+  <div class="">
+    <img src="<%= post.thumb_img %>" alt=""/>
+    <br>
+    <%= post.created_time %>
+    <br>
+    <%= post.caption %>
+  </div>
+<% end %>
+<!-- /users/user-id/media/recent -->

@@ -1,0 +1,11 @@
+<% if signed_in? %>
+  Welcome, <%= current_user.email %>
+  <%= button_to "Sign out", session_url, method: :delete %>
+<% else %>
+  <%= link_to "Log in", new_session_url %>
+  <%= link_to "Sign up", new_user_url %>
+<% end %>
+
+<% if flash[:errors] %>
+  <%= flash[:errors].join("<br>").html_safe %>
+<% end %>
