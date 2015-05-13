@@ -1,4 +1,4 @@
-json.countries countries.each do |country|
+json.countries @countries.each do |country|
   json.name country.name
   json.created_at country.created_at
   json.updated_at country.updated_at

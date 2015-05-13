@@ -21,7 +21,6 @@ class Feed < ActiveRecord::Base
                       { count: 10 })
 
     feed.each do |post|
-      posttime << post["caption"]["created_time"]
       new_post = Post.new({
         feed_id: self.id,
         created_time: post["caption"]["created_time"],
@@ -31,5 +30,6 @@ class Feed < ActiveRecord::Base
       new_post.save
     end
 
+    feed
   end
 end

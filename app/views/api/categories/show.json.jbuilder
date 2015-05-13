@@ -1,8 +1,8 @@
-json.title category.title
-json.created_at category.created_at
-json.updated_at category.updated_at
-json.id category.id
-json.feeds category.feeds do |feed|
+json.title @category.title
+json.created_at @category.created_at
+json.updated_at @category.updated_at
+json.id @category.id
+json.feeds @category.feeds do |feed|
   json.ig_user feed.ig_user
   json.country_id feed.country_id
   json.id feed.id

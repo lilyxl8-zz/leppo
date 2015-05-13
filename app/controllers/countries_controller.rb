@@ -1,6 +1,6 @@
 class CountriesController < ApplicationController
   def show
-    country = Country.find(params[:id])
+    @country = Country.find(params[:id])
     render :show
   end
 

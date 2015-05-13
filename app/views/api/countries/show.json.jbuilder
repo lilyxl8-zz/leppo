@@ -1,8 +1,8 @@
-json.name country.name
-json.created_at country.created_at
-json.updated_at country.updated_at
-json.id country.id
-json.feeds country.feeds do |feed|
+json.name @country.name
+json.created_at @country.created_at
+json.updated_at @country.updated_at
+json.id @country.id
+json.feeds @country.feeds do |feed|
   json.ig_user feed.ig_user
   json.category_id feed.category_id
   json.id feed.id
