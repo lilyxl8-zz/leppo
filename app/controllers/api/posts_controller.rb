@@ -24,6 +24,7 @@ module Api
     private
 
     def post_params
+      # has title?
       params.require(:post).permit(:title, :feed_id, :ig_url)
     end
   end

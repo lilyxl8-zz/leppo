@@ -4,47 +4,59 @@ Leppo.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "index",
-    "categories/new": "new",
-    "categories/:id": "show",
+    "": "categoryIndex",
+    "categories/new": "categoryNew",
+    "categories/:id": "categoryShow",
+    "feeds/new": "feedNew"
   },
 
   edit: function (id) {
-    var categories = Leppo.Collections.categories.getOrFetch(id);
+    var category = Leppo.Collections.categories.getOrFetch(id);
 
-    var formView = new Leppo.Views.CategoryForm({
-      model: categories,
+    var categoryEditView = new Leppo.Views.CategoryForm({
+      model: category,
       collection: Leppo.Collections.categories
     });
 
-    this._swapView(formView);
+    this._swapView(categoryEditView);
   },
 
-  index: function () {
+  categoryIndex: function () {
     Leppo.Collections.categories.fetch();
 
-    var indexView = new Leppo.Views.CategoriesIndex({
+    var categoryIndexView = new Leppo.Views.CategoriesIndex({
       collection: Leppo.Collections.categories
     });
-    
-    this._swapView(indexView);
+
+    this._swapView(categoryIndexView);
   },
 
-  new: function () {
+  categoryNew: function () {
     var newCategory = new Leppo.Models.Category();
 
-    var formView = new Leppo.Views.CategoryForm({
+    var newCategoryView = new Leppo.Views.CategoryForm({
       collection: Leppo.Collections.categories,
       model: newCategory
     });
 
-    this._swapView(formView);
+    this._swapView(newCategoryView);
   },
 
-  show: function (id) {
+  categoryShow: function (id) {
     var categories = Leppo.Collections.categories.getOrFetch(id);
-    var formView = new Leppo.Views.CategoryShow({ model: categories });
-    this._swapView(formView);
+    var categoryShowView = new Leppo.Views.CategoryShow({ model: categories });
+    this._swapView(categoryShowView);
+  },
+
+  feedNew: function () {
+    var newFeed = new Leppo.Models.Feed();
+
+    var newFeedView = new Leppo.Views.FeedForm({
+      collection: Leppo.Collections.feeds,
+      model: newFeed
+    });
+
+    this._swapView(newFeedView);
   },
 
   _swapView: function (view) {

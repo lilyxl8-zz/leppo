@@ -1,0 +1,28 @@
+<h1>
+  <%= categories.isNew() ? 'Add Feed' : 'Edit Category' %>
+</h1>
+
+<label>Instagram Handle<br>
+  <input name="ig_user" type="text"><br>
+</label><br>
+<label>Category ID<br>
+  <input name="category_id" type="text"><br>
+</label><br>
+<label>Country ID<br>
+  <input name="country_id" type="text"><br>
+</label><br>
+<button class="submit">Submit</button>
+<a href='#/'>Back</a>
+
+<!-- <label for='title'>Title</label>
+<br>
+<input type='text' name='title' id='title' value='<%= categories.escape('title') %>'>
+<br>
+<label for='body'>Body</label>
+<br>
+<textarea name='body' id='body'>
+  <%= categories.escape('body') %>
+  </textarea>
+  <br>
+  <button>Submit</button>
+  <a href='#/'>Back</a> -->

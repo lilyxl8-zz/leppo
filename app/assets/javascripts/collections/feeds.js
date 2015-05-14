@@ -17,10 +17,10 @@ Leppo.Collections.Feeds = Backbone.Collection.extend({
         },
       });
     } else {
-      // feed.fetch();
+      feed.fetch();
     }
     return feed;
   }
 });
 
-// Leppo.Collections.feeds = new Leppo.Collections.Feeds();
+Leppo.Collections.feeds = new Leppo.Collections.Feeds();

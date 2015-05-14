@@ -20,10 +20,17 @@ class Feed < ActiveRecord::Base
                  { count: 10 })
 
     feed.each do |post|
+      if post["caption"]
+        created_time = post["caption"]["created_time"]
+        caption = post["caption"]["text"]
+      else
+        created_time = post["created_time"]
+        caption = ""
+      end
       new_post = Post.new({
         feed_id: self.id,
-        created_time: post["caption"]["created_time"],
-        caption: post["caption"]["text"],
+        created_time: created_time,
+        caption: caption,
         thumb_img: post["images"]["low_resolution"]["url"],
         full_img: post["images"]["standard_resolution"]["url"] })
       new_post.save

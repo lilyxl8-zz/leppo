@@ -9,7 +9,6 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
     var renderedContent = this.template({
       category: this.model
     });
-
     this.$el.html(renderedContent);
     return this;
   }

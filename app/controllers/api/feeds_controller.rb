@@ -4,6 +4,7 @@ module Api
       @feed = Feed.new(feed_params)
 
       if @feed.save
+        @feed.get_posts
         render json: @feed
       else
         render json: @feed.errors.full_messages, status: :unprocessable_entity
