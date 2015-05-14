@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :categories, only: [:index, :create, :show]
     resources :countries, only: [:index, :create, :show]
-    resources :feeds, only: [:index, :create, :update, :destroy]
-    resources :posts, only: [:create, :update, :destroy]
+    resources :feeds, only: [:index, :create, :update, :destroy, :show]
+    resources :posts, only: [:index, :create, :update, :destroy, :show]
   end
 end

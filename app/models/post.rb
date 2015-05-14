@@ -5,4 +5,8 @@ class Post < ActiveRecord::Base
   validates :created_time, presence: true, uniqueness: true
 
   belongs_to :feed
+
+  def author
+    feed.ig_user
+  end
 end

@@ -16,8 +16,7 @@ module Api
     end
 
     def show
-      @feed = Feed.includes(:country, :category).find(params[:id])
-
+      @feed = Feed.includes(:posts).find(params[:id])
       render :show
     end
 
