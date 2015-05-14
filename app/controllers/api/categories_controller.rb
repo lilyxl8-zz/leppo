@@ -22,8 +22,12 @@ module Api
     end
 
     def show
-      @category = Category.includes(:feeds).find(params[:id])
 
+      if params[:id]
+        @category = Category.includes(:feeds).find(params[:id])
+      else
+        @category = Category.includes(:feeds).find_by title: params[:title].capitalize
+      end
       render :show
     end
 

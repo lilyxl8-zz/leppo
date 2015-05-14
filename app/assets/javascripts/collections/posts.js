@@ -1,10 +1,7 @@
 Leppo.Collections.Posts = Backbone.Collection.extend({
   model: Leppo.Models.Post,
   url: '/api/posts',
-
-  comparator: function(post) {
-    return post.get('created_time');
-  },
+  comparator: 'created_time',
 
   getOrFetch: function (id) {
     var post = this.get(id),
