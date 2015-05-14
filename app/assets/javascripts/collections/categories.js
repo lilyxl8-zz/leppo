@@ -5,6 +5,7 @@ Leppo.Collections.Categories = Backbone.Collection.extend({
   getOrFetch: function (id) {
     var category = this.get(id),
       categories = this;
+
     if(!category) {
       category = new Leppo.Models.Category({ id: id });
       category.fetch({

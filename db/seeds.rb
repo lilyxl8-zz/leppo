@@ -1,3 +1,6 @@
+u1 = User.create(email: 'a@a.com', password: 'password')
+u2 = User.create(email: 'b@b.com', password: 'password')
+
 b1 = Country.create(name: 'Russia')
 b2 = Country.create(name: 'Sweden')
 b3 = Country.create(name: 'Germany')

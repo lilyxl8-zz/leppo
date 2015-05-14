@@ -29,6 +29,7 @@ gem 'mime-types'
 gem 'netrc'
 gem 'rdoc'
 gem 'rest-client'
+gem 'ejs'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
