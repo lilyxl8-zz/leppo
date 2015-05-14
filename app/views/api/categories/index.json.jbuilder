@@ -1,4 +1,4 @@
-json.categories @categories.each do |category|
+json.array! @categories.each do |category|
   json.title category.title
   json.created_at category.created_at
   json.updated_at category.updated_at
