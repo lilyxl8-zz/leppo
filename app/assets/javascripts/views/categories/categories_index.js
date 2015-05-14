@@ -1,10 +1,12 @@
-Leppo.Views.PostsIndex = Backbone.View.extend({
-  template: JST["posts/index"],
+Leppo.Views.CategoriesIndex = Backbone.View.extend({
+  template: JST["categories/index"],
 
+  events: {
 
+  },
 
   initialize: function () {
-    this.listenTo(this.collection, "add change:title remove reset", this.render);
+    this.listenTo(this.collection, "add change:title remove reset sync", this.render);
   },
 
   render: function () {

@@ -1,4 +1,4 @@
-Leppo.Views.PostShow = Backbone.View.extend({
+Leppo.Views.CategoryShow = Backbone.View.extend({
   template: _.template("<h1>Category Show View</h1><h1><%= categories.escape('title') %></h1><%= categories.escape('body') %><a href='#/'>Index</a>"),
 
   initialize: function () {

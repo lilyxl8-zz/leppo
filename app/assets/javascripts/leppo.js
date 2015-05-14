@@ -5,7 +5,7 @@ window.Leppo = {
   Routers: {},
   initialize: function() {
     new Leppo.Routers.Router({
-      $rootEl: $("#content")
+      $rootEl: $("#main")
     });
     Backbone.history.start();
   }
