@@ -10,5 +10,6 @@ class CreateFeeds < ActiveRecord::Migration
 
     add_index :feeds, :country_id
     add_index :feeds, :category_id
+    add_index :feeds, :ig_user, unique: true
   end
 end
