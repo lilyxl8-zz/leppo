@@ -8,6 +8,9 @@ window.Leppo = {
       $rootEl: $("#content")
     });
     Backbone.history.start();
-    console.log("hi");
   }
 };
+
+$(document).ready(function(){
+  Leppo.initialize();
+});

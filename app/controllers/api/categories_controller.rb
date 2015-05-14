@@ -11,7 +11,7 @@ module Api
     end
 
     def destroy
-      @category = current_user.@categories.find(params[:id])
+      @category = Category.find(params[:id])
       @category.try(:destroy)
       render json: {}
     end

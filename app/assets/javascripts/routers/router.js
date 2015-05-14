@@ -22,7 +22,7 @@ Leppo.Routers.Router = Backbone.Router.extend({
 
   index: function () {
     Leppo.Collections.categories.fetch();
-
+    
     var indexView = new Leppo.Views.CategoriesIndex({
       collection: Leppo.Collections.categories
     });
