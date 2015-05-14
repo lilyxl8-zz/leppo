@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+ html, body, main, div, ul, li, span {
+   margin: 0;
+   padding: 0;
+   font: inherit;
+ }
+
+.feed-list {
+  list-style: none;
+}
+
+.feed-item {
+  display: block;
+  float: left;
+  margin: 20px;
+}

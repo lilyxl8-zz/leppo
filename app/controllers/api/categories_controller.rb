@@ -18,7 +18,7 @@ module Api
 
     def index
       @categories = Category.all
-      render json: @categories
+      render :index
     end
 
     def show

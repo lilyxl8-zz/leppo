@@ -5,7 +5,6 @@ Leppo.Models.Category = Backbone.Model.extend({
     if (!this._posts) {
       this._posts = new Leppo.Collections.Posts([], { collection: this });
     }
-
     return this._posts;
   },
 

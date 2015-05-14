@@ -1,11 +1,12 @@
 <h1><%= category.escape('title') %></h1>
-<ul>
+<a href='#/'>&lt;&lt; Back</a>
+
+<ul class="feed-list">
   <% category.posts().each(function (post) { %>
-  <li>
-  <a href="#/posts/<%= post.id %>">
-    <img src="<%= post.escape("thumb_img") %>" alt="" />
-  </a>
+  <li class="feed-item">
+    <a href="#/posts/<%= post.id %>">
+      <img src="<%= post.escape("thumb_img") %>" alt="" />
+    </a>
   </li>
   <% }); %>
 </ul>
-<a href='#/'><< Back</a>

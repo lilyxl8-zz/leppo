@@ -1,5 +1,5 @@
 json.categories @categories.each do |category|
-  json.name category.name
+  json.title category.title
   json.created_at category.created_at
   json.updated_at category.updated_at
   json.id category.id
@@ -13,5 +13,7 @@ json.categories @categories.each do |category|
       json.thumb_img post.thumb_img
       json.created_time post.created_time
       json.caption post.caption
+      json.author post.feed.ig_user
     end
   end
+end
