@@ -1,13 +1,30 @@
-<h1>Countries</h1>
 <ul class="countries-list">
   <% countries.each(function (country) { %>
     <li class="country-item">
-      <!-- escape("name").toLowerCase() -->
-    <a href="#/countries/<%= country.id %>"><%= country.escape("name") %></a>
+
+    <h2 class="country-title">
+      <a href="#/countries/<%= country.id %>">
+        <%= country.escape("name") %>
+      </a>
+      <!-- escape("title").toLowerCase() -->
+    </h2>
+
+    <ul class="country-posts">
+      <% country.posts().each(function (post) { %>
+        <li class="post-item">
+          <img src="<%= post.escape('thumb_img') %>" alt="" />
+        </li>
+      <% }) %>
+    </ul>
     </li>
   <% }); %>
 
 </ul>
+<p>
+  <a href="#">
+    <h2>Categories</h2>
+  </a>
+</p>
 <p>
   <a href="#/countries/new">Add Country</a><br>
   <a href="#/feeds/new">Add Feed</a>

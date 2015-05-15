@@ -1,9 +1,19 @@
-<h1>Categories</h1>
-
 <ul class="categories-list">
   <% categories.each(function (category) { %>
     <li class="category-item">
-    <a href="#/categories/<%= category.escape("title").toLowerCase() %>"><%= category.escape("title") %></a>
+
+    <h2 class="category-title">
+      <a href="#/categories/<%= category.escape("title").toLowerCase() %>"><%= category.escape("title") %>
+      </a>
+    </h2>
+
+    <ul class="category-posts">
+      <% category.posts().each(function (post) { %>
+        <li class="post-item">
+          <img src="<%= post.escape('thumb_img') %>" alt="" />
+        </li>
+      <% }) %>
+    </ul>
     </li>
   <% }); %>
 

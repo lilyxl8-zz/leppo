@@ -1,11 +1,19 @@
 <nav class="topnav group">
-  <figure class="topnav-brand">
-    <a class="topnav-brand-logo" href="/#">b</a>
-  </figure>
+  <ul class="topnav-menu-left">
+    <figure class="topnav-brand">
+      <a class="topnav-brand-logo" href="/#"><i>l</i></a>
+    </figure>
+    <li>
+      <a href="#">Following</a>
+    </li>
+    <li>
+      <a href="#/countries">Countries</a>
+    </li>
+  </ul>
   <ul class="topnav-menu-right">
   <% if signed_in? %>
     <li>
-      <a href="/#categories/new" style="padding: 0;">
+      <a href="/#feeds/new" style="padding: 0;">
         <button class='navbar-btn btn new-category hvr-radial-out'>
           +
         </button>
@@ -16,8 +24,16 @@
     </li>
 
   <% else %>
-    <li><%= link_to "Log in", new_session_url %></li>
-    <li><%= link_to "Sign up", new_user_url %></li>
+    <li>
+      <%= button_to "Log in", new_session_url, class: "navbar-btn btn hvr-radial-out" %>
+    </li>
+    <li>
+      <a href="/users/new" style="padding: 0;">
+        <button class='navbar-btn btn hvr-radial-out'>
+          Sign up
+        </button>
+      </a>
+    </li>
   <% end %>
   </ul>
 </nav>
