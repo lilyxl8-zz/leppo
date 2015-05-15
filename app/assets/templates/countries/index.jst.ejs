@@ -2,7 +2,8 @@
 <ul class="countries-list">
   <% countries.each(function (country) { %>
     <li class="country-item">
-    <a href="#/countries/<%= country.escape("name").toLowerCase() %>"><%= country.escape("name") %></a>
+      <!-- escape("name").toLowerCase() -->
+    <a href="#/countries/<%= country.id %>"><%= country.escape("name") %></a>
     </li>
   <% }); %>
 

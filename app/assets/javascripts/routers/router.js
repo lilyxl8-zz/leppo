@@ -74,15 +74,14 @@ Leppo.Routers.Router = Backbone.Router.extend({
   //   this._swapView(newCountryView);
   // },
   //
-  // countryShow: function (title) {
-  //   // var country = Leppo.Collections.countries.findWhere({
-  //   //   title: title
-  //   // });
-  //   var country = Leppo.Collections.countries.getOrFetchTitle(title);
-  //
-  //   var countryShowView = new Leppo.Views.CountryShow({ model: country });
-  //   this._swapView(countryShowView);
-  // },
+  countryShow: function (id) {
+    // var country = Leppo.Collections.countries.getOrFetchTitle(title);
+
+    var country = Leppo.Collections.countries.getOrFetch(id);
+
+    var countryShowView = new Leppo.Views.CountryShow({ model: country });
+    this._swapView(countryShowView);
+  },
 
   feedNew: function () {
     var newFeed = new Leppo.Models.Feed();
