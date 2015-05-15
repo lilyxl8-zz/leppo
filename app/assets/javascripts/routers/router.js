@@ -48,7 +48,7 @@ Leppo.Routers.Router = Backbone.Router.extend({
     //   title: title
     // });
     var category = Leppo.Collections.categories.getOrFetchTitle(title);
-    
+
     var categoryShowView = new Leppo.Views.CategoryShow({ model: category });
     this._swapView(categoryShowView);
   },
