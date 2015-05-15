@@ -7,7 +7,7 @@ Leppo.Routers.Router = Backbone.Router.extend({
     "": "categoriesIndex",
     "categories/new": "categoryNew",
     "categories/:title": "categoryShow",
-    "": "countriesIndex",
+    "countries": "countriesIndex",
     "countries/new": "countryNew",
     "countries/:id": "countryShow",
     "feeds/new": "feedNew"

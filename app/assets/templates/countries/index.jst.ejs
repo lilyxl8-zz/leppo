@@ -1,0 +1,13 @@
+<h1>Countries</h1>
+<ul class="countries-list">
+  <% countries.each(function (country) { %>
+    <li class="country-item">
+    <a href="#/countries/<%= country.escape("name").toLowerCase() %>"><%= country.escape("name") %></a>
+    </li>
+  <% }); %>
+
+</ul>
+<p>
+  <a href="#/countries/new">Add Country</a><br>
+  <a href="#/feeds/new">Add Feed</a>
+</p>

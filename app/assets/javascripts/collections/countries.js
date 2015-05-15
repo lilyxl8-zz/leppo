@@ -2,17 +2,17 @@ Leppo.Collections.Countries = Backbone.Collection.extend({
   model: Leppo.Models.Country,
   url: '/api/countries',
 
-  getOrFetchTitle: function (title) {
+  getOrFetchname: function (name) {
     var country = this.findWhere({
-      title: title
+      name: name
     }),
       countries = this;
 
     if(!country) {
-      country = new Leppo.Models.Country({ title: title });
+      country = new Leppo.Models.Country({ name: name });
 
       country.fetch({
-        data: { title: title },
+        data: { name: name },
         success: function () {
           countries.add(country);
         },

@@ -1,0 +1,12 @@
+<h1><%= country.escape('name') %></h1>
+<a href='#/'>&lt;&lt; Back</a>
+
+<ul class="feed-list">
+  <% country.posts().each(function (post) { %>
+  <li class="feed-item">
+    <a href="#/posts/<%= post.id %>">
+      <img src="<%= post.escape("thumb_img") %>" alt="" />
+    </a>
+  </li>
+  <% }); %>
+</ul>
