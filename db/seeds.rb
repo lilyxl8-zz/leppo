@@ -25,12 +25,13 @@ d1 = Feed.create( ig_user: 'marymoon_iphoto',
                   country_id: 1 )
 
 d2 = Feed.create( ig_user: 'insta_moskva',
-                  category_id: 5,
-                  country_id: 1 )
+                  category_id: 1,
+                  country_id: 2 )
 
 d3 = Feed.create( ig_user: 'dubcow',
-                  category_id: 8,
-                  country_id: 1 )
+                  category_id: 2,
+                  country_id: 3 )
+
 b1.save!
 b2.save!
 b3.save!
@@ -50,3 +51,5 @@ c6.save!
 c7.save!
 
 d1.save!
+d2.save!
+d3.save!

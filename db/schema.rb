@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20150512183615) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string   "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["title"], name: "index_categories_on_title", unique: true
+  add_index "categories", ["title"], name: "index_categories_on_title", unique: true, using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "name",       null: false
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150512183615) do
     t.datetime "updated_at"
   end
 
-  add_index "countries", ["name"], name: "index_countries_on_name", unique: true
+  add_index "countries", ["name"], name: "index_countries_on_name", unique: true, using: :btree
 
   create_table "feeds", force: :cascade do |t|
     t.string   "ig_user",     null: false
@@ -37,8 +40,9 @@ ActiveRecord::Schema.define(version: 20150512183615) do
     t.datetime "updated_at"
   end
 
-  add_index "feeds", ["category_id"], name: "index_feeds_on_category_id"
-  add_index "feeds", ["country_id"], name: "index_feeds_on_country_id"
+  add_index "feeds", ["category_id"], name: "index_feeds_on_category_id", using: :btree
+  add_index "feeds", ["country_id"], name: "index_feeds_on_country_id", using: :btree
+  add_index "feeds", ["ig_user"], name: "index_feeds_on_ig_user", unique: true, using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "thumb_img",    null: false
@@ -50,9 +54,9 @@ ActiveRecord::Schema.define(version: 20150512183615) do
     t.datetime "updated_at"
   end
 
-  add_index "posts", ["created_time"], name: "index_posts_on_created_time"
-  add_index "posts", ["feed_id"], name: "index_posts_on_feed_id"
-  add_index "posts", ["full_img"], name: "index_posts_on_full_img", unique: true
+  add_index "posts", ["created_time"], name: "index_posts_on_created_time", using: :btree
+  add_index "posts", ["feed_id"], name: "index_posts_on_feed_id", using: :btree
+  add_index "posts", ["full_img"], name: "index_posts_on_full_img", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -62,7 +66,7 @@ ActiveRecord::Schema.define(version: 20150512183615) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["session_token"], name: "index_users_on_session_token"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree
 
 end
