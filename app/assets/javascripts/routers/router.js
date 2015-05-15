@@ -4,9 +4,12 @@ Leppo.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "categoryIndex",
+    "": "categoriesIndex",
     "categories/new": "categoryNew",
     "categories/:title": "categoryShow",
+    "": "countriesIndex",
+    "countries/new": "countryNew",
+    "countries/:id": "countryShow",
     "feeds/new": "feedNew"
   },
 
@@ -22,14 +25,14 @@ Leppo.Routers.Router = Backbone.Router.extend({
     this._swapView(categoryEditView);
   },
 
-  categoryIndex: function () {
+  categoriesIndex: function () {
     Leppo.Collections.categories.fetch();
 
-    var categoryIndexView = new Leppo.Views.CategoriesIndex({
+    var categoriesIndexView = new Leppo.Views.CategoriesIndex({
       collection: Leppo.Collections.categories
     });
 
-    this._swapView(categoryIndexView);
+    this._swapView(categoriesIndexView);
   },
 
   categoryNew: function () {
@@ -44,14 +47,42 @@ Leppo.Routers.Router = Backbone.Router.extend({
   },
 
   categoryShow: function (title) {
-    // var category = Leppo.Collections.categories.findWhere({
-    //   title: title
-    // });
     var category = Leppo.Collections.categories.getOrFetchTitle(title);
 
     var categoryShowView = new Leppo.Views.CategoryShow({ model: category });
     this._swapView(categoryShowView);
   },
+
+  countriesIndex: function () {
+    Leppo.Collections.countries.fetch();
+
+    var countriesIndexView = new Leppo.Views.CountriesIndex({
+      collection: Leppo.Collections.countries
+    });
+
+    this._swapView(countriesIndexView);
+  },
+
+  // countryNew: function () {
+  //   var newCountry = new Leppo.Models.Country();
+  //
+  //   var newCountryView = new Leppo.Views.CountryForm({
+  //     collection: Leppo.Collections.countries,
+  //     model: newCountry
+  //   });
+  //
+  //   this._swapView(newCountryView);
+  // },
+  //
+  // countryShow: function (title) {
+  //   // var country = Leppo.Collections.countries.findWhere({
+  //   //   title: title
+  //   // });
+  //   var country = Leppo.Collections.countries.getOrFetchTitle(title);
+  //
+  //   var countryShowView = new Leppo.Views.CountryShow({ model: country });
+  //   this._swapView(countryShowView);
+  // },
 
   feedNew: function () {
     var newFeed = new Leppo.Models.Feed();
