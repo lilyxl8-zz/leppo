@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in!(@user)
+      Feed.update_all
       redirect_to root_url
     else
       flash.now[:errors] = ["Invalid email and/or password"]

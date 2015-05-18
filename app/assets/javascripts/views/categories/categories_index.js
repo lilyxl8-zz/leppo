@@ -1,5 +1,6 @@
 Leppo.Views.CategoriesIndex = Backbone.View.extend({
   template: JST["categories/index"],
+  tagName: 'section',
 
   events: {
 

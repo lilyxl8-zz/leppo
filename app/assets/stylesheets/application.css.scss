@@ -19,6 +19,9 @@
    margin: 0;
    padding: 0;
    font: inherit;
+   color: inherit;
+   box-sizing: inherit;
+   text-decoration: inherit;
  }
 
 .feed-list {
@@ -32,7 +35,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'roboto';
 }
 
 a {
@@ -56,7 +59,8 @@ ul {
 }
 
 .btn {
-  border: 1px solid black;
+  border: 1px solid #999;
+  color: #999;
   background: white;
   overflow: hidden;
   border-radius: 20px;
@@ -115,10 +119,19 @@ ul {
 }
 
 .topnav-menu-left {
+
+
   float: left;
   display: block;
   list-style: none;
   margin-top: 15px;
+
+  li {
+    font-family: 'roboto';
+    font-weight: 300;
+    font-size: 24px;
+    margin: 6px 30px;
+  }
 }
 
 .topnav-menu-right {
@@ -134,13 +147,6 @@ ul {
   display: block;
 }
 
-.topnav-menu-left li {
-  font-family: 'roboto';
-  font-weight: 300;
-  font-size: 24px;
-  margin: 6px 30px;
-}
-
 #main {
   top: 66px;
   position: relative;
@@ -153,41 +159,34 @@ ul {
   font: 28px/35px "ProximaNova-Black", "Arial", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin: 50px 0;
+  margin: 10px 0;
+  padding: 30px 40px;
   width: 300px;
-  padding: 10px;
-  border-bottom: 4px solid black;
+  display: block;
+  text-align: left;
 }
 
 @font-face {
-  font-family: 'Tagesschrift';
-  src: url('tagesschrift.ttf');
+  font-family: 'ProximaNova-Black';
+  src: url('proximanova-black.ttf');
 }
 
 .category-posts, .country-posts {
   list-style: none;
+  margin: 0 auto;
 }
 
 .post-item {
   list-style: none;
   float: left;
   display: block;
-  margin: 10px 40px;
+  padding: 30px 40px 20px 40px;
+  border: 1px solid #fff;
+  color: #999;
 }
 
-.board-item {
-  border: 5px solid black;
-  margin: 30px auto;
-  width: 60%;
-  minimum-width: 300px;
-  text-align: center;
-  font-size: 36px;
-  vertical-align: middle;
-}
-
-.board-item:hover,
-.navbar-btn:hover {
-  color: white;
+.post-item:hover {
+  border: 1px solid #ccc;
 }
 
 .navbar-btn:hover {
@@ -200,54 +199,54 @@ ul {
   height: 100%;
 }
 
-.categories-list a:hover {
-  color: white;
+.country-name {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 0;
+  text-align: left;
+
+  a {
+    color: #999;
+  }
+
+  a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
 }
 
-.board-title {
-  margin: 0;
-  padding: 40px;
-}
-
-/* Board View */
-
-
-.list-show, .new-list {
-  display: block;
+.post-author {
+  position: absolute;
+  font-size: 13px;
+  padding: 5px 5px;
+  width: 310px;
+  text-align: left;
   float: left;
-  width: 26%;
-  margin: 15px 18px;
-  padding-bottom: 10px;
-  border: 8px solid black;
+  background: #eee;
+  color: #000;
+  letter-spacing: 1px;
+  margin-top: -25px;
 }
 
-.list-title {
-  font-size: 24px;
-  width: 200px;
-  margin: 0 auto;
-  padding: 10px 0 8px;
-
+.counters {
+  padding-top: 20px;
+  font-size: 14px;
 }
 
-.cards-list {
-  padding: 0;
+.likes-count {
+  i {
+    float: left;
+  }
 }
 
-.card-show {
+.likes-count-num, .comments-count {
+  float: left;
 }
 
-.card-show li {
-  font-size: 18px;
-  width: 180px;
-  border: 2px solid black;
-  margin: 10px auto;
-  padding: 10px 0;
-}
-
-.new-list-link:hover,
-.new-card-link:hover,
-.new-item-link:hover {
-  cursor: pointer;
+.comments-count {
+  margin-left: 8px;
 }
 
 /* Hover Effects */
@@ -265,8 +264,8 @@ ul {
   background: white;
   -webkit-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 .hvr-rectangle-out:before {
   content: "";
@@ -281,8 +280,8 @@ ul {
   transform: scale(0);
   -webkit-transition-property: transform;
   transition-property: transform;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
@@ -343,3 +342,6 @@ ul {
 
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+
+@import "font-awesome-sprockets";
+@import "font-awesome";

@@ -11,6 +11,12 @@ class Feed < ActiveRecord::Base
   belongs_to :country
   has_many :posts
 
+  def self.update_all
+    self.all.each do |feed|
+      feed.get_posts
+    end
+  end
+
   def get_posts
     client = Instagram.client(:access_token => ACCESS_TOKEN)
     user = JSON.parse(client.user_search(self.ig_user)

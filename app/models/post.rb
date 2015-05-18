@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
   def author
     feed.ig_user
   end
+
+  def country
+    feed.country.name
+  end
 end
