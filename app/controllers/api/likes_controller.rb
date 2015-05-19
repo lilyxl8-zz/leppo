@@ -1,13 +1,12 @@
 module Api
   class LikesController < ApiController
     def create
-      @feed = Feed.new(feed_params)
+      @like = Like.new(like_params)
 
-      if @feed.save
-        @feed.get_posts
-        render json: @feed
+      if @like.save
+        render json: @like
       else
-        render json: @feed.errors.full_messages, status: :unprocessable_entity
+        render json: @like.errors.full_messages, status: :unprocessable_entity
       end
     end
 
