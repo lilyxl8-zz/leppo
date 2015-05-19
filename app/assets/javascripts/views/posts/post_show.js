@@ -8,7 +8,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
   className: 'post-item',
 
   events: {
-    'click .likes-count': 'addLike'
+    'click .likes-count': 'toggleLike'
   },
 
   initialize: function () {
@@ -49,17 +49,16 @@ Leppo.Views.PostShow = Backbone.View.extend({
   toggleLike: function (event) {
     event.preventDefault();
 
-
+    var that = this;
     var like = Leppo.Collections.likes.findWhere({ post_id: this.model.id });
 
     if (like) {
-      
+      like.destroy();
     } else {
-      new Leppo.Models.Like({
-        post_id: this.model.id,
-      });
+      like = new Leppo.Models.Like({ post_id: this.model.id });
       like.save({}, {
         success: function () {
+          that.model.likes().add(like);
           console.log(like);
         }
       });

@@ -12,7 +12,9 @@ module Api
     end
 
     def destroy
-
+      @like = Like.find(params[:id])
+      @like.try(:destroy)
+      render json: {}
     end
 
     private
