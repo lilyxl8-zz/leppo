@@ -1,6 +1,11 @@
 Leppo.Views.PostShow = Backbone.View.extend({
-  thumbTemplate: JST["posts/thumb"],
+  thumbPreCategoryTemplate: JST["posts/_thumbPreCategory"],
+  thumbPreCountryTemplate: JST["posts/_thumbPreCountry"],
+  thumbCoreTemplate: JST["posts/_thumbCore"],
   bigTemplate: JST["posts/show"],
+
+  tagName: 'li',
+  className: 'post-item',
 
   events: {
     'click .likes-count': 'addLike'
@@ -12,11 +17,17 @@ Leppo.Views.PostShow = Backbone.View.extend({
 
 // need 2 renders, one for thumb, one for bigShow
 
-  render: function () {
-    var renderedContent = this.thumbTemplate({
+  renderThumbCore: function () {
+    var renderedContent = this.thumbCoreTemplate({
       post: this.model
     });
-    this.$el.html(renderedContent);
+    this.$el.append(renderedContent);
+    return this;
+  },
+
+  renderThumbWithCategory: function () {
+    this.$el.html(this.thumbPreCategoryTemplate({ post: this.model }));
+    this.renderThumbCore();
     return this;
   },
 
@@ -31,11 +42,10 @@ Leppo.Views.PostShow = Backbone.View.extend({
   addLike: function (event) {
     event.preventDefault();
     var like = new Leppo.Models.Like({});
-    like.save({}, success {
-      function () {
+    like.save({}, {
+      success: function () {
 
       }
     });
-
   }
 });

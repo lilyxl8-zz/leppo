@@ -4,20 +4,7 @@
 </h2>
 
 <ul class="country-posts">
-  <% country.posts().forEach(function (post) { %>
 
-    <li class="post-item">
-      <h3 class="category-name">
-        <a href="#/categories/<%= post.escape('category').toLowerCase() %> ">
-          <%= post.escape('category') %>
-        </a>
-      </h3>
-
-      <%= post.render().$el %>
-
-    </li>
-
-  <% }) %>
 </ul>
 
 <p>
