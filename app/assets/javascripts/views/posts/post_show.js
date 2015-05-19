@@ -31,6 +31,12 @@ Leppo.Views.PostShow = Backbone.View.extend({
     return this;
   },
 
+  renderThumbWithCountry: function () {
+    this.$el.html(this.thumbPreCountryTemplate({ post: this.model }));
+    this.renderThumbCore();
+    return this;
+  },
+
   renderBig: function () {
     var renderedContent = this.bigTemplate({
       post: this.model

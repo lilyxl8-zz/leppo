@@ -1,6 +1,7 @@
 Leppo.Views.CategoriesIndex = Backbone.View.extend({
   template: JST["categories/index"],
-  tagName: 'section',
+  tagName: 'ul',
+  className: 'categories-list',
 
   events: {
 
@@ -11,10 +12,19 @@ Leppo.Views.CategoriesIndex = Backbone.View.extend({
   },
 
   render: function () {
-    var renderedContent = this.template({
-      categories: this.collection
-    });
+
+    var renderedContent = this.template();
     this.$el.html(renderedContent);
+
+    var that = this;
+    this.collection.each(function (category) {
+      var categoryView = new Leppo.Views.CategoryShow({ model: category });
+
+      that.$el.append(
+        categoryView.render(false).$el
+      );
+
+    });
     return this;
   }
 });

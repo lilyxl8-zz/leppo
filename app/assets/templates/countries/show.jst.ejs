@@ -1,18 +1,8 @@
-<h2 class="country-title">
-  <%= country.escape("name") %>
+<h2 class="country-title group">
+  <a href="#/countries/<%= country.id %>"><%= country.escape("name") %></a>
   <!-- escape("title").toLowerCase() -->
 </h2>
 
 <ul class="country-posts">
 
 </ul>
-
-<p>
-  <a href="#">
-    <h2>Countries</h2>
-  </a>
-</p>
-<p>
-  <a href="#/counties/new">Add Country</a><br>
-  <a href="#/feeds/new">Add Feed</a>
-</p>

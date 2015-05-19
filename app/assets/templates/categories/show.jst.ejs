@@ -1,30 +1,7 @@
 <h2 class="category-title">
-  <%= category.escape("title") %>
-  <!-- escape("title").toLowerCase() -->
+  <a href="#/categories/<%= category.escape("title").toLowerCase() %>"><%= category.escape("title") %></a>
 </h2>
 
 <ul class="category-posts">
-  <% category.posts().forEach(function (post) { %>
 
-    <li class="post-item">
-      <h3 class="country-name">
-        <a href="#/countries/<%= post.escape('country').toLowerCase() %> ">
-          <%= post.escape('country') %>
-        </a>
-      </h3>
-      <%= JST["posts/_thumb"]({ post: post }) %>
-
-    </li>
-
-  <% }) %>
 </ul>
-
-<p>
-  <a href="#">
-    <h2>Categories</h2>
-  </a>
-</p>
-<p>
-  <a href="#/categories/new">Add Category</a><br>
-  <a href="#/feeds/new">Add Feed</a>
-</p>
