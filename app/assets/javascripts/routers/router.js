@@ -16,7 +16,6 @@ Leppo.Routers.Router = Backbone.Router.extend({
   edit: function (id) {
     var category = Leppo.Collections.categories.getOrFetch(id);
 
-    debugger;
     var categoryEditView = new Leppo.Views.CategoryForm({
       model: category,
       collection: Leppo.Collections.categories

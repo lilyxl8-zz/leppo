@@ -148,15 +148,19 @@ ul {
 }
 
 #main {
-  top: 66px;
+  top: 100px;
   position: relative;
   display: block;
   margin: 0 80px;
   text-align: center;
 }
 
+.category-item {
+  margin-top: 30px;
+}
+
 .category-title, .country-title {
-  font: 28px/35px "ProximaNova-Black", "Arial", sans-serif;
+  font: 28px/35px "ProximaNova-Black", "Roboto", "Arial", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 10px 0;
@@ -166,10 +170,10 @@ ul {
   text-align: left;
 }
 
-@font-face {
-  font-family: 'ProximaNova-Black';
-  src: url('proximanova-black.ttf');
-}
+// @font-face {
+//   font-family: 'ProximaNova-Black';
+//   src: url('proximanova-black.ttf');
+// }
 
 .category-posts, .country-posts {
   list-style: none;
@@ -183,10 +187,15 @@ ul {
   padding: 30px 40px 20px 40px;
   border: 1px solid #fff;
   color: #999;
+  -webkit-transition-property: border;
+  transition-property: border;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 
 .post-item:hover {
   border: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .navbar-btn:hover {

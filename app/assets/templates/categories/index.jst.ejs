@@ -1,51 +1,52 @@
 <ul class="categories-list">
   <% categories.each(function (category) { %>
-    <li class="category-item">
+    <li class="category-item group">
 
-    <h2 class="category-title">
-      <a href="#/categories/<%= category.escape("title").toLowerCase() %>"><%= category.escape("title") %>
-      </a>
-    </h2>
+      <h2 class="category-title">
+        <a href="#/categories/<%= category.escape("title").toLowerCase() %>"><%= category.escape("title") %>
+        </a>
+      </h2>
 
-    <ul class="category-posts">
-      <% category.posts().each(function (post) { %>
+      <ul class="category-posts">
+        <% category.posts().each(function (post) { %>
 
-        <li class="post-item">
-          <h3 class="country-name">
-            <a href="#/countries/<%= post.escape('country').toLowerCase() %> ">
-              <%= post.escape('country') %>
-            </a>
-          </h3>
-
-          <section class="post-img">
-            <a href="#/feeds/<%= post.escape('author').toLowerCase() %>/<%= post.id %>">
-              <img src="<%= post.escape('thumb_img') %>" alt="" />
-            </a>
-            <section class="post-author">
-              <a href="#/feeds/<%= post.escape('author').toLowerCase() %>">
-                <%= post.escape('author') %>
+          <li class="post-item">
+            <h3 class="country-name">
+              <a href="#/countries/<%= post.escape('country').toLowerCase() %> ">
+                <%= post.escape('country') %>
               </a>
+            </h3>
+
+            <section class="post-img">
+              <a href="#/feeds/<%= post.escape('author').toLowerCase() %>/<%= post.id %>">
+                <img src="<%= post.escape('thumb_img') %>" alt="" />
+              </a>
+              <section class="post-author">
+                <a href="#/feeds/<%= post.escape('author').toLowerCase() %>">
+                  <%= post.escape('author') %>
+                </a>
+              </section>
             </section>
-          </section>
 
-          <section class="counters">
-            <div class="likes-count">
-              <i class="icon-heart-empty"></i>
-              <span class="likes-count-num">😘 9</span>
-            </div>
-            <div class="comments-count">
-              <span class="icon-comment"></span>
-              <span class="comments-count-num">😉 0</span>
-            </div>
-          </section>
-        </li>
+            <section class="counters">
+              <div class="likes-count">
+                <i class="icon-heart-empty"></i>
+                <span class="likes-count-num">😘 9</span>
+              </div>
+              <div class="comments-count">
+                <span class="icon-comment"></span>
+                <span class="comments-count-num">😉 0</span>
+              </div>
+            </section>
+          </li>
 
-      <% }) %>
-    </ul>
+        <% }) %>
+      </ul>
     </li>
-  <% }); %>
+  <% }) %>
 
 </ul>
+
 <p>
   <a href="#/countries">
     <h2>Countries</h2>
