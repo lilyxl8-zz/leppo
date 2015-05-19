@@ -28,7 +28,11 @@
 
   <% else %>
     <li>
-      <%= button_to "Log in", new_session_url, class: "navbar-btn btn hvr-radial-out" %>
+      <a href="/session/new" style="padding: 0;">
+        <button class='navbar-btn btn hvr-radial-out'>
+          Log in
+        </button>
+      </a>
     </li>
     <li>
       <a href="/users/new" style="padding: 0;">

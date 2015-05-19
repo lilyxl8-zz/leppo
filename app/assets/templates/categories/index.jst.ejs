@@ -8,7 +8,7 @@
       </h2>
 
       <ul class="category-posts">
-        <% category.posts().each(function (post) { %>
+        <% category.posts().slice(0,6).forEach(function (post) { %>
 
           <li class="post-item">
             <h3 class="country-name">
@@ -17,27 +17,8 @@
               </a>
             </h3>
 
-            <section class="post-img">
-              <a href="#/feeds/<%= post.escape('author').toLowerCase() %>/<%= post.id %>">
-                <img src="<%= post.escape('thumb_img') %>" alt="" />
-              </a>
-              <section class="post-author">
-                <a href="#/feeds/<%= post.escape('author').toLowerCase() %>">
-                  <%= post.escape('author') %>
-                </a>
-              </section>
-            </section>
+            <%= JST["posts/_post"]({ post: post }) %>
 
-            <section class="counters">
-              <div class="likes-count">
-                <i class="icon-heart-empty"></i>
-                <span class="likes-count-num">😘 9</span>
-              </div>
-              <div class="comments-count">
-                <span class="icon-comment"></span>
-                <span class="comments-count-num">😉 0</span>
-              </div>
-            </section>
           </li>
 
         <% }) %>

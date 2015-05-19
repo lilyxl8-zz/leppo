@@ -155,7 +155,7 @@ ul {
   text-align: center;
 }
 
-.category-item {
+.category-item, .country-item {
   margin-top: 30px;
 }
 
@@ -203,12 +203,7 @@ ul {
   cursor: pointer;
 }
 
-.categories-list a {
-  width: 100%;
-  height: 100%;
-}
-
-.country-name {
+.country-name, .category-name {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 14px;
