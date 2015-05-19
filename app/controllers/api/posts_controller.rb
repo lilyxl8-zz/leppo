@@ -12,13 +12,12 @@ module Api
 
     def index
       @posts = Post.all
-      render json: @posts
+      render :index
     end
 
     def show
       @post = Post.find(params[:id])
-
-      render json: @post
+      render :show
     end
 
     private

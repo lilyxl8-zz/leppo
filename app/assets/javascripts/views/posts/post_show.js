@@ -12,7 +12,8 @@ Leppo.Views.PostShow = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'add remove reset sync', this.render);
+    this.listenTo(this.model.likes(), 'add remove reset sync', this.render);
   },
 
 // need 2 renders, one for thumb, one for bigShow
@@ -45,13 +46,23 @@ Leppo.Views.PostShow = Backbone.View.extend({
     return this;
   },
 
-  addLike: function (event) {
+  toggleLike: function (event) {
     event.preventDefault();
-    var like = new Leppo.Models.Like({});
-    like.save({}, {
-      success: function () {
 
-      }
-    });
+
+    var like = Leppo.Collections.likes.findWhere({ post_id: this.model.id });
+
+    if (like) {
+      
+    } else {
+      new Leppo.Models.Like({
+        post_id: this.model.id,
+      });
+      like.save({}, {
+        success: function () {
+          console.log(like);
+        }
+      });
+    }
   }
 });

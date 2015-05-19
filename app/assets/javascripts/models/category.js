@@ -1,5 +1,5 @@
 Leppo.Models.Category = Backbone.Model.extend({
-  urlRoot: '/api/categoryShow',
+  urlRoot: '/api/categories',
 
   posts: function () {
     if (!this._posts) {
