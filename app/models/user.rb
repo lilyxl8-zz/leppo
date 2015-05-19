@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 5, allow_nil: true }
   validates :email, uniqueness: true
 
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
+
   attr_reader :password
   after_initialize :ensure_session_token
 

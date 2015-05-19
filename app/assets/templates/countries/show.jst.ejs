@@ -1,12 +1,31 @@
-<h1><%= country.escape('name') %></h1>
-<a href='#/'>&lt;&lt; Back</a>
+<h2 class="country-title">
+  <%= country.escape("name") %>
+  <!-- escape("title").toLowerCase() -->
+</h2>
 
-<ul class="feed-list">
-  <% country.posts().each(function (post) { %>
-  <li class="feed-item">
-    <a href="#/posts/<%= post.id %>">
-      <img src="<%= post.escape("thumb_img") %>" alt="" />
-    </a>
-  </li>
-  <% }); %>
+<ul class="country-posts">
+  <% country.posts().forEach(function (post) { %>
+
+    <li class="post-item">
+      <h3 class="category-name">
+        <a href="#/categories/<%= post.escape('category').toLowerCase() %> ">
+          <%= post.escape('category') %>
+        </a>
+      </h3>
+
+      <%= JST["posts/_post"]({ post: post }) %>
+
+    </li>
+
+  <% }) %>
 </ul>
+
+<p>
+  <a href="#">
+    <h2>Countries</h2>
+  </a>
+</p>
+<p>
+  <a href="#/counties/new">Add Country</a><br>
+  <a href="#/feeds/new">Add Feed</a>
+</p>

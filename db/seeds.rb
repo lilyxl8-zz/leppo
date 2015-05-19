@@ -93,8 +93,18 @@ d15 = Feed.create( ig_user: 'aiww',
                   category_id: 11,
                   country_id: 8 )
 
+d16 = Feed.create( ig_user: 'uberlinco',
+                  category_id: 5,
+                  country_id: 3 )
+
+l1 = Like.create( user_id: 1, post_id: 21)
+l1.save!
+l2 = Like.create( user_id: 2, post_id: 121)
+l2.save!
+l3 = Like.create( user_id: 1, post_id: 121)
+l3.save!
+
 b1.save!
-# punodostres
 b2.save!
 b3.save!
 b4.save!
@@ -139,3 +149,4 @@ d12.save!
 d13.save!
 d14.save!
 d15.save!
+d16.save!

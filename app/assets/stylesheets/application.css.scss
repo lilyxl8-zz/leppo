@@ -96,9 +96,7 @@ ul {
 }
 
 .topnav-brand,
-.topnav-brand-logo,
-.board-title,
-.list-item {
+.topnav-brand-logo {
   font-family: 'playfair display', sans-serif;
 }
 
@@ -245,8 +243,12 @@ ul {
   }
 }
 
-.likes-count-num, .comments-count {
+.likes-count, .comments-count {
   float: left;
+}
+
+.likes-count:hover, .comments-count:hover {
+  color: #000;
 }
 
 .comments-count {
