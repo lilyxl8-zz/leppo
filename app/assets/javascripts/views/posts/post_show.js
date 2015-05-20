@@ -3,7 +3,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
   bigTemplate: JST["posts/show"],
 
   tagName: 'section',
-  // className: 'post-item',
+  className: 'post-img',
 
   events: {
     'click .likes-count': 'toggleLike'
