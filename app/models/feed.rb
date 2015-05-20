@@ -19,11 +19,8 @@ class Feed < ActiveRecord::Base
 
   def get_posts
     client = Instagram.client(:access_token => ACCESS_TOKEN)
-    user = JSON.parse(client.user_search(:ig_user)
-                      .to_json)[0]
-    feed = JSON.parse(client.user_recent_media(user["id"])
-                 .to_json,
-                 { count: 10 })
+    user = JSON.parse(client.user_search(self.ig_user).to_json)[0]
+    feed = JSON.parse(client.user_recent_media(user["id"]).to_json, { count: 10 })
 
     feed.each do |post|
       if post["caption"]
@@ -33,13 +30,13 @@ class Feed < ActiveRecord::Base
         created_time = post["created_time"]
         caption = ""
       end
-      new_post = Post.new({
+      new_post = Post.create(
         feed_id: self.id,
         created_time: created_time,
         caption: caption,
         thumb_img: post["images"]["low_resolution"]["url"],
-        full_img: post["images"]["standard_resolution"]["url"] })
-      return if !new_post.save
+        full_img: post["images"]["standard_resolution"]["url"] )
+      new_post.save
     end
 
     feed

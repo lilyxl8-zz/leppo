@@ -12,18 +12,13 @@ Leppo.Views.CategoriesIndex = Backbone.View.extend({
   },
 
   render: function () {
-
     var renderedContent = this.template();
     this.$el.html(renderedContent);
 
     var that = this;
     this.collection.each(function (category) {
       var categoryView = new Leppo.Views.CategoryShow({ model: category });
-
-      that.$el.append(
-        categoryView.render(false).$el
-      );
-
+      that.$el.append(categoryView.render(false).$el);
     });
     return this;
   }

@@ -17,7 +17,9 @@ module Api
     end
 
     def index
-      Feed.update_all if Feed.first.updated_at > 30.minutes.ago
+      if Feed.first.updated_at > 30.minutes.ago || Post.all.count < 1
+        Feed.update_all
+      end
       @categories = Category.all
       render :index
     end
