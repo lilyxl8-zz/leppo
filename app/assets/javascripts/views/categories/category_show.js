@@ -5,7 +5,7 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
   className: 'country-item group',
 
   initialize: function () {
-    this.listenTo(this.model, 'change sync', this.render);
+    this.listenTo(this.model, 'change', this.render);
   },
 
   render: function (options) {
@@ -17,10 +17,9 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
 
     posts.forEach(function (post) {
       var postThumb = new Leppo.Views.PostShow({ model: post });
-      that.$el.find('.category-posts').append(
-        that.thumbPreCountryTemplate({ post: post }));
-      that.$el.find('.category-posts').append(
-        postThumb.renderThumbWithCountry().$el);
+      that.$el.find('.category-posts').append('<li class="post-item">');
+      that.$el.find('.post-item').last().append(that.thumbPreCountryTemplate({ post: post }));
+      that.$el.find('.post-item').last().append(postThumb.renderThumbCore().$el);
     });
     return this;
   }

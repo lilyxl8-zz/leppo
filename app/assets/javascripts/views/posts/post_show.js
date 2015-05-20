@@ -2,15 +2,15 @@ Leppo.Views.PostShow = Backbone.View.extend({
   thumbCoreTemplate: JST["posts/_thumbCore"],
   bigTemplate: JST["posts/show"],
 
-  tagName: 'li',
-  className: 'post-item',
+  tagName: 'section',
+  // className: 'post-item',
 
   events: {
     'click .likes-count': 'toggleLike'
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'change remove sync', this.renderThumbCore);
+    this.listenTo(this.model, 'change', this.renderThumbCore);
   },
 
 // need 2 renders, one for thumb, one for bigShow

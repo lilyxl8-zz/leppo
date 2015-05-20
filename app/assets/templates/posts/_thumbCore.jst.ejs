@@ -1,12 +1,11 @@
-  <section class="post-img">
-    <a href="#/feeds/<%= post.escape('author').toLowerCase() %>/<%= post.id %>">
-      <img src="<%= post.escape('thumb_img') %>" alt="" />
+
+  <a href="#/feeds/<%= post.escape('author').toLowerCase() %>/<%= post.id %>">
+    <img src="<%= post.escape('thumb_img') %>" alt="" />
+  </a>
+  <section class="post-author">
+    <a href="#/feeds/<%= post.escape('author').toLowerCase() %>">
+      <%= post.escape('author') %>
     </a>
-    <section class="post-author">
-      <a href="#/feeds/<%= post.escape('author').toLowerCase() %>">
-        <%= post.escape('author') %>
-      </a>
-    </section>
   </section>
 
   <section class="counters">
@@ -19,4 +18,3 @@
       <span class="comments-count-num">😉 0</span>
     </div>
   </section>
-</li>
