@@ -1,19 +1,17 @@
 Leppo.Views.PostShow = Backbone.View.extend({
   thumbCoreTemplate: JST["posts/_thumbCore"],
-  bigTemplate: JST["posts/show"],
+  postModalTemplate: JST["posts/show"],
 
   tagName: 'section',
   className: 'post-img',
 
   events: {
-    'click .likes-count': 'toggleLike'
+    'click .likes-count': 'toggleLike',
   },
 
   initialize: function () {
     this.listenTo(this.model, 'change', this.renderThumbCore);
   },
-
-// need 2 renders, one for thumb, one for bigShow
 
   renderThumbCore: function () {
     var renderedContent = this.thumbCoreTemplate({
@@ -24,12 +22,19 @@ Leppo.Views.PostShow = Backbone.View.extend({
   },
 
   renderBig: function () {
-    var renderedContent = this.bigTemplate({
-      post: this.model
-    });
-    this.$el.html(renderedContent);
-    return this;
+    console.log("hi");
+    $(".modal").toggleClass("is-open");
+    var modalContent = this.postModalTemplate({ post: this.model });
+    $(".modal-form").html(modalContent);
   },
+
+  // renderBig: function () {
+  //   var renderedContent = this.bigTemplate({
+  //     post: this.model
+  //   });
+  //   this.$el.html(renderedContent);
+  //   return this;
+  // },
 
   toggleLike: function (event) {
     event.preventDefault();
