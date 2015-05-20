@@ -1,5 +1,5 @@
 Leppo.Models.Country = Backbone.Model.extend({
-  urlRoot: '/api/countries',
+  urlRoot: '/api/countryShow',
 
   posts: function () {
     if (!this._posts) {

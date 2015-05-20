@@ -37,6 +37,7 @@ Leppo.Collections.Countries = Backbone.Collection.extend({
     } else {
       country.fetch();
     }
+    
     return country;
   }
 });

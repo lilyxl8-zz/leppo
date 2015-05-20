@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     get 'categoryShow' => 'categories#show'
 
     resources :countries, only: [:index, :create, :show]
+    get 'countryShow' => 'countries#show'
+
     resources :feeds, only: [:new, :edit]
     resources :posts, except: [:new, :edit] do
       collection do

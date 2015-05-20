@@ -16,7 +16,11 @@ module Api
     end
 
     def show
-      @country = Country.find(params[:id])
+      if params[:id]
+        @country = Country.includes(:feeds).find(params[:id])
+      else
+        @country = Country.includes(:feeds).find_by name: params[:name].capitalize
+      end
       render :show
     end
 
