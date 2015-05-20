@@ -10,7 +10,8 @@ Leppo.Routers.Router = Backbone.Router.extend({
     "countries": "countriesIndex",
     "countries/new": "countryNew",
     "countries/:id": "countryShow",
-    "feeds/new": "feedNew"
+    "feeds/new": "feedNew",
+    "liked": "likedIndex"
   },
 
   edit: function (id) {
@@ -62,6 +63,15 @@ Leppo.Routers.Router = Backbone.Router.extend({
     this._swapView(countriesIndexView);
   },
 
+  likedIndex: function () {
+    Leppo.Collections.countries.fetch();
+
+    var countriesIndexView = new Leppo.Views.CountriesIndex({
+      collection: Leppo.Collections.countries
+    });
+
+    this._swapView(countriesIndexView);
+  },
   // countryNew: function () {
   //   var newCountry = new Leppo.Models.Country();
   //

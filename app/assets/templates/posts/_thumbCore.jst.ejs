@@ -1,20 +1,19 @@
-
-  <a href="#/feeds/<%= post.escape('author').toLowerCase() %>/<%= post.id %>">
-    <img src="<%= post.escape('thumb_img') %>" alt="" />
+<a href="#/feeds/<%= post.escape('author').toLowerCase() %>/<%= post.id %>">
+  <img src="<%= post.escape('thumb_img') %>" alt="" />
+</a>
+<section class="post-author">
+  <a href="#/feeds/<%= post.escape('author').toLowerCase() %>">
+    <%= post.escape('author') %>
   </a>
-  <section class="post-author">
-    <a href="#/feeds/<%= post.escape('author').toLowerCase() %>">
-      <%= post.escape('author') %>
-    </a>
-  </section>
+</section>
 
-  <section class="counters">
-    <div class="likes-count">
-        <i class="icon-heart-empty"></i>
-        <span class="likes-count-num">😘 <%= post.escape('like_count') %></span>
-    </div>
-    <div class="comments-count">
-      <span class="icon-comment"></span>
-      <span class="comments-count-num">😉 0</span>
-    </div>
-  </section>
+<section class="counters group">
+  <div class="likes-count">
+      <i class="icon-heart-empty"></i>
+      <span class="likes-count-num"><%= post.escape('like_count') %></span>
+  </div>
+  <div class="comments-count">
+    <span class="icon-comment-alt"></span>
+    <span class="comments-count-num">0</span>
+  </div>
+</section>

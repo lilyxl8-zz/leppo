@@ -31,7 +31,6 @@ gem 'netrc'
 gem 'rdoc'
 gem 'rest-client'
 gem 'ejs'
-gem 'font-awesome-sass'
 
 group :production do
   gem 'rails_12factor'

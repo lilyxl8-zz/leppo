@@ -8,7 +8,7 @@ Leppo.Views.CategoriesIndex = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.collection, "add change:title remove reset sync", this.render);
+    this.listenTo(this.collection, "sync add remove", this.render);
   },
 
   render: function () {
