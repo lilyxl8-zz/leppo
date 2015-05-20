@@ -9,7 +9,7 @@ class Feed < ActiveRecord::Base
 
   belongs_to :category
   belongs_to :country
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   def self.update_all
     self.all.each do |feed|
@@ -20,6 +20,9 @@ class Feed < ActiveRecord::Base
   def get_posts
     client = Instagram.client(:access_token => ACCESS_TOKEN)
     user = JSON.parse(client.user_search(self.ig_user).to_json)[0]
+
+    # TODO raise error
+    return unless user
     feed = JSON.parse(client.user_recent_media(user["id"]).to_json, { count: 10 })
 
     feed.each do |post|

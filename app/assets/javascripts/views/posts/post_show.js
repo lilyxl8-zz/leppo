@@ -13,7 +13,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'add remove reset sync', this.render);
-    this.listenTo(this.model.likes(), 'add remove reset sync', this.render);
+    this.listenTo(this.model.likes(), 'add remove reset sync', this.renderThumbCore);
   },
 
 // need 2 renders, one for thumb, one for bigShow
@@ -50,7 +50,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
     event.preventDefault();
 
     var that = this;
-    var like = Leppo.Collections.likes.findWhere({ post_id: this.model.id });
+    var like = this.model.likes().findWhere({ user_id: 1 });
 
     if (like) {
       like.destroy();
