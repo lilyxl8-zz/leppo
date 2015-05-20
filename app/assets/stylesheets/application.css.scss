@@ -48,6 +48,12 @@ a:hover {
   color: #999;
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 ul {
   list-style: none;
 }
@@ -190,16 +196,29 @@ ul {
   transition-property: border;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+
+  img {
+    transition: all 0.3s ease;
+  }
 }
 
 .post-item:hover {
   border: 1px solid #ccc;
   cursor: pointer;
 
-  .post-author {
-    -webkit-transform: rotateX(0);
-    transform: rotateX(0);
+  .country-name a, .category-name a {
+    color: #000;
   }
+
+  .post-author {
+    margin-top: -25px;
+  }
+
+  img {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+  }
+
   .counters {
     -webkit-transform: rotateX(0);
     transform: rotateX(0);
@@ -221,6 +240,7 @@ ul {
 
   a {
     color: #999;
+    transition: all 0.3s ease;
   }
 
   a:hover {
@@ -229,24 +249,23 @@ ul {
   }
 }
 
+.img-container {
+  overflow: hidden;
+  height: 320px;
+  position: relative;
+}
+
 .post-author {
   position: absolute;
   font-size: 13px;
   padding: 5px 5px;
   width: 310px;
   text-align: left;
-  float: left;
-  background: #eee;
+  background-color: rgba(255,255,255,0.5);
   color: #000;
+  margin-top: 0;
   letter-spacing: 1px;
-  margin-top: -29px;
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.66, 0, 0.07, 1);
-  transition: transform 0.3s cubic-bezier(0.66, 0, 0.07, 1);
-  -webkit-transform: rotateX(-90deg);
-  transform: rotateX(-90deg);
-  -webkit-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  transform-origin: 0 0;
+  transition: all 0.3s ease;
 }
 
 .counters {
