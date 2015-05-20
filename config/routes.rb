@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root to: 'static_pages#root'
 
-  resources :users
-  resource :session, except: [:update, :edit]
+  resources :users, only: [:create, :new]
+  resource :session, only: [:create, :new, :destroy]
 
-  resources :feeds, only: [:new, :create, :show]
-  resources :countries, only: [:new, :create, :show]
-  resources :categories, only: [:new, :create, :show]
+  # resources :feeds, only: [:new, :create, :show]
+  # resources :countries, only: [:new, :create, :show]
+  # resources :categories, only: [:new, :create, :show]
 
   namespace :api, defaults: { format: :json } do
     resources :categories, only: [:index, :create, :show]
@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :countries, only: [:index, :create, :show]
     resources :feeds, only: [:new, :edit]
     resources :posts, except: [:new, :edit] do
-      post :like
+      collection do
+        post :like
+      end
     end
     resources :likes, only: [:create, :destroy]
   end

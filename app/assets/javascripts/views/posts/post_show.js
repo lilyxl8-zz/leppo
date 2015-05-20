@@ -12,7 +12,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'add remove reset sync', this.render);
+    this.listenTo(this.model, 'add change remove reset sync', this.renderThumbCore);
     this.listenTo(this.model.likes(), 'add remove reset sync', this.renderThumbCore);
   },
 
@@ -56,7 +56,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
         post_id: this.model.id
       }, success: function (attrs) {
         this.model.set(this.model.parse(attrs));
-        this.collection.add(this.model, { merge: true });
+        Leppo.Collections.posts.add(this.model, { merge: true });
       }.bind(this)
     });
   }

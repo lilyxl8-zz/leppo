@@ -22,7 +22,7 @@ module Api
 
     def like
       if signed_in?
-        @post = Post.find(params[:id])
+        @post = Post.find(params[:post_id])
         @like = Like.find_by(post_id: @post.id, user_id: current_user.id)
 
         if @like
