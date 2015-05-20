@@ -13,8 +13,10 @@ Rails.application.routes.draw do
     get 'categoryShow' => 'categories#show'
 
     resources :countries, only: [:index, :create, :show]
-    resources :feeds, only: [:index, :create, :update, :destroy, :show]
-    resources :posts, only: [:index, :create, :update, :destroy, :show]
+    resources :feeds, only: [:new, :edit]
+    resources :posts, except: [:new, :edit] do
+      post :like
+    end
     resources :likes, only: [:create, :destroy]
   end
 end

@@ -20,8 +20,22 @@ module Api
       render :show
     end
 
-    private
+    def like
+      if signed_in?
+        @post = Post.find(params[:id])
+        @like = Like.find_by(post_id: @post.id, user_id: current_user.id)
 
+        if @like
+          @like.destroy!
+          render :show
+        else
+          current_user.likes.create!(post_id: @post.id)
+          render :show
+        end
+      end
+    end
+
+    private
     def post_params
       # has title?
       params.require(:post).permit(:title, :feed_id, :ig_url)

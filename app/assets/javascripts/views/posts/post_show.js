@@ -49,19 +49,15 @@ Leppo.Views.PostShow = Backbone.View.extend({
   toggleLike: function (event) {
     event.preventDefault();
 
-    var that = this;
-    var like = this.model.likes().findWhere({ user_id: 1 });
-
-    if (like) {
-      like.destroy();
-    } else {
-      like = new Leppo.Models.Like({ post_id: this.model.id });
-      like.save({}, {
-        success: function () {
-          that.model.likes().add(like);
-          console.log(like);
-        }
-      });
-    }
+    $.ajax({
+      url: "api/posts/like",
+      type: "POST",
+      data: {
+        post_id: this.model.id
+      }, success: function (attrs) {
+        this.model.set(this.model.parse(attrs));
+        this.collection.add(this.model, { merge: true });
+      }.bind(this)
+    });
   }
 });
