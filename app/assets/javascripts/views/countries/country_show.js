@@ -20,7 +20,7 @@ Leppo.Views.CountryShow = Backbone.View.extend({
       that.$el.find('.country-posts').append(
         that.thumbPreCategoryTemplate({ post: post }));
       that.$el.find('.country-posts').append(
-        postThumb.renderThumbWithCategory().$el);
+        postThumb.renderThumbCore().$el);
     });
     return this;
   }

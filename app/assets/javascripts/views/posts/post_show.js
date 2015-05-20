@@ -1,6 +1,4 @@
 Leppo.Views.PostShow = Backbone.View.extend({
-  thumbPreCategoryTemplate: JST["posts/_thumbPreCategory"],
-  thumbPreCountryTemplate: JST["posts/_thumbPreCountry"],
   thumbCoreTemplate: JST["posts/_thumbCore"],
   bigTemplate: JST["posts/show"],
 
@@ -22,18 +20,6 @@ Leppo.Views.PostShow = Backbone.View.extend({
       post: this.model
     });
     this.$el.html(renderedContent);
-    return this;
-  },
-
-  renderThumbWithCategory: function () {
-    this.$el.html();
-    this.renderThumbCore();
-    return this;
-  },
-
-  renderThumbWithCountry: function () {
-    this.$el.html(this.thumbPreCountryTemplate({ post: this.model }));
-    this.renderThumbCore();
     return this;
   },
 
