@@ -12,8 +12,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'add change remove reset sync', this.renderThumbCore);
-    this.listenTo(this.model.likes(), 'add remove reset sync', this.renderThumbCore);
+    this.listenTo(this.model, 'change remove sync', this.renderThumbCore);
   },
 
 // need 2 renders, one for thumb, one for bigShow
@@ -22,12 +21,12 @@ Leppo.Views.PostShow = Backbone.View.extend({
     var renderedContent = this.thumbCoreTemplate({
       post: this.model
     });
-    this.$el.append(renderedContent);
+    this.$el.html(renderedContent);
     return this;
   },
 
   renderThumbWithCategory: function () {
-    this.$el.html(this.thumbPreCategoryTemplate({ post: this.model }));
+    this.$el.html();
     this.renderThumbCore();
     return this;
   },
