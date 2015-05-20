@@ -1,11 +1,21 @@
 Leppo.Views.CategoryShow = Backbone.View.extend({
   template: JST["categories/show"],
   thumbPreCountryTemplate: JST["posts/_thumbPreCountry"],
+  postModalTemplate: JST["posts/show"],
+
   tagName: 'ul',
   className: 'country-item group',
 
+  events: {
+    "click .post-item": "showPost"
+  },
+
   initialize: function () {
     this.listenTo(this.model, 'change', this.render);
+  },
+
+  showPost: function (event) {
+    console.log("hi");
   },
 
   render: function (options) {
