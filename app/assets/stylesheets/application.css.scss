@@ -7,7 +7,7 @@
 //   .modal-form 3
 //   .modal-close 2
 
-html, body, header, main, div, section, figure, p, ul, li, span {
+html, body, header, main, div, section, figure, p, ul, li, span, h2 {
    margin: 0;
    padding: 0;
    font: inherit;
@@ -34,7 +34,7 @@ body {
 a {
   text-decoration: none;
   color: black;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 a:hover {
@@ -122,7 +122,6 @@ ul {
 
 
   float: left;
-  display: block;
   list-style: none;
   margin-top: 15px;
 
@@ -136,7 +135,6 @@ ul {
 
 .topnav-menu-right {
   float: right;
-  display: block;
   list-style: none;
   margin-top: 10px;
   margin-right: 30px;
@@ -144,7 +142,6 @@ ul {
 
 .topnav-menu-right li, .topnav-menu-left li {
   float: left;
-  display: block;
 }
 
 #main {
@@ -156,22 +153,33 @@ ul {
 }
 
 .category-item, .country-item {
-  top: 100px;
+  top: 72px;
   position: relative;
   display: block;
   margin: 0 20px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 .category-title, .country-title {
-  font: 28px/35px "ProximaNova-Black", "Roboto", "Arial", sans-serif;
-  text-transform: uppercase;
+  font: 700 42px "Playfair Display", serif;
+  /* text-transform: uppercase; */
   letter-spacing: 2px;
-  margin: 10px 0;
-  padding: 30px 40px;
+  margin: 0 auto 40px;
   display: block;
   text-align: center;
+  border-bottom: 4px double #000;
+  transition: all 0.4s ease;
+  width: 300px;
+
+  a {
+    display: block;
+    padding: 30px 30px 20px;
+  }
+}
+
+.category-title:hover, .country-title:hover {
+  border-color: #999;
 }
 
 // @font-face {
@@ -193,7 +201,8 @@ ul {
   color: #999;
   transition: all 0.5s ease;
   z-index: 0;
-  margin: 0 1.5%;
+  margin: 0 1%;
+  width: 24%;
 
   img {
     transition: all 0.3s ease;
@@ -244,7 +253,6 @@ ul {
 
 .img-container {
   overflow: hidden;
-  height: 320px;
   position: relative;
 }
 
@@ -347,8 +355,7 @@ ul {
   background: #fff;
   z-index: 3;
   display: block;
-  width: 700px;
-  overflow: scroll;
+  width: 900px;
 }
 
 .modal-close {
@@ -358,6 +365,28 @@ ul {
   left: 0;
   right: 0;
   z-index: 2;
+}
+
+/* Post Modal */
+
+.post-img-container {
+  width: 60%;
+
+  .post-country {
+    float: left;
+  }
+
+  .post-category-main {
+    margin: 0 auto;
+  }
+
+  .post-author {
+    float: right;
+  }
+}
+
+.post-content {
+  overflow: auto;
 }
 
 /* Hover Effects */
@@ -449,7 +478,29 @@ ul {
   transform: scale(2);
 }
 
+/* Responsive */
+
+@media all and (max-width: 1280px) {
+  .post-item {
+    width: 36%;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .post-item {
+    width: 70%;
+  }
+
+  .topnav-menu-left li {
+    font-size: 20px;
+  }
+
+  .navbar-btn {
+    font-size: 12px;
+  }
+}
+
 /* Font Libraries */
 
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
