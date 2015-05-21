@@ -17,7 +17,7 @@ module Api
     end
 
     def index
-      if Feed.first.updated_at > 30.minutes.ago || Post.all.count < 1
+      if Feed.first.updated_at < 30.minutes.ago || Post.all.count < 1
         Feed.update_all
       end
       @categories = Category.all

@@ -32,6 +32,8 @@ module Api
           current_user.likes.create!(post_id: @post.id)
           render :show
         end
+      else
+        render json: {}
       end
     end
 
