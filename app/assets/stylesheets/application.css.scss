@@ -355,7 +355,7 @@ ul {
   background: #fff;
   z-index: 3;
   display: block;
-  width: 900px;
+  width: 700px;
 }
 
 .modal-close {
@@ -369,24 +369,30 @@ ul {
 
 /* Post Modal */
 
-.post-img-container {
-  width: 60%;
+.modal-img-container {
+  span {
+    position: relative;
+  }
 
-  .post-country {
+  .modal-post-country {
     float: left;
   }
 
-  .post-category-main {
+  .modal-post-category-main {
     margin: 0 auto;
   }
 
-  .post-author {
+  .modal-post-author {
     float: right;
   }
 }
 
 .post-content {
   overflow: auto;
+
+  .goog-logo-link img {
+    width: 37px;
+  }
 }
 
 /* Hover Effects */
@@ -480,7 +486,7 @@ ul {
 
 /* Responsive */
 
-@media all and (max-width: 1280px) {
+@media all and (max-width: 1200px) {
   .post-item {
     width: 36%;
   }
