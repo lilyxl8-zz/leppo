@@ -12,12 +12,6 @@ Leppo.Views.CountriesIndex = Backbone.View.extend({
   },
 
   render: function () {
-    // var renderedContent = this.template({
-    //   countries: this.collection
-    // });
-    // this.$el.html(renderedContent);
-    // return this;
-
     var renderedContent = this.template();
     this.$el.html(renderedContent);
 
