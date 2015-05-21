@@ -1,6 +1,6 @@
-$(function(){
-  $("body").on("click", ".js-modal-close", function (event){
-    event.preventDefault();
-    $(".modal").removeClass("is-open");
+$(function() {
+  $("body").on("click", ".modal-close", function (event) {
+    console.log("hi");
+    $("body").removeClass("modal-is-open");
   });
 });

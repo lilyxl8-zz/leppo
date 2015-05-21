@@ -1,3 +1,12 @@
+// Z-Index
+// .top-nav 1
+// .main
+//   .post-item 0
+//   .likes-count 1
+// .modal 5
+//   .modal-form 3
+//   .modal-close 2
+
 html, body, header, main, div, section, figure, p, ul, li, span {
    margin: 0;
    padding: 0;
@@ -25,11 +34,11 @@ body {
 a {
   text-decoration: none;
   color: black;
+  transition: all 0.3s ease;
 }
 
 a:hover {
   color: #999;
-  transition: all 0.3s ease;
 }
 
 img {
@@ -101,10 +110,6 @@ ul {
   display: block;
   float: left;
   margin: 0 60px;
-  // border: 1px solid #999;
-  // width: 50px;
-  // height: 50px;
-  // border-radius: 25px;
 }
 
 .topnav-brand-logo {
@@ -143,6 +148,10 @@ ul {
 }
 
 #main {
+  background: #fffeff;
+}
+
+.categories-list, .countries-list {
   top: 100px;
   position: relative;
   display: block;
@@ -298,13 +307,37 @@ ul {
 /* Modal */
 
 .modal {
-  display: none;
+  background: white;
+
+  position: fixed;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  margin: -25% 0 0 -25%;
+  z-index: 5;
+
+  /* Hidden */
+  opacity: 0;
+  pointer-events: none;
 }
 
-.modal.is-open {
-  display: block;
+.modal-is-open .modal {
+  opacity: 1;
+  /* Clickable */
+  pointer-events: auto;
 }
 
+.modal-is-open #main, .modal-is-open .topnav {
+  -webkit-filter: blur(5px) grayscale(50%) brightness(50%);
+  -moz-filter: blur(5px) grayscale(50%);
+  -o-filter: blur(5px) grayscale(50%);
+  -ms-filter: blur(5px) grayscale(50%);
+  filter: blur(5px) grayscale(50%);
+}
+
+#main, .modal {
+  transition: all 0.4s ease; /* prefix me */
+}
 
 .modal-form {
   position: fixed;
@@ -319,9 +352,8 @@ ul {
   width: 700px;
 }
 
-.modal-screen {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.7);
+.modal-close {
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
