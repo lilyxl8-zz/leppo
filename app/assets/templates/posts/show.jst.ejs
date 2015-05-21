@@ -1,1 +1,16 @@
+<h2 class="post-category">
+  <%= post.escape('category') %>
+</h2>
+<h3 class="post-country">
+  <%= post.escape('country') %>
+</h3>
 <img src="<%= post.escape('full_img') %>">
+
+<%= post.escape('author') %>
+<div class="likes-count">
+  <i class="icon-heart-empty"></i>
+  <span class="likes-count-num"><%= post.escape('like_count') %></span>
+</div>
+<div class="post-caption">
+  <%= post.escape('caption') %>
+</div>
