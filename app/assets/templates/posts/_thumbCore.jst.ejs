@@ -1,7 +1,5 @@
 <section class="img-container">
-  <a href="#/feeds/<%= post.escape('author').toLowerCase() %>/<%= post.id %>">
-    <img src="<%= post.escape('thumb_img') %>" alt="" />
-  </a>
+  <img src="<%= post.escape('thumb_img') %>" alt="" />
   <section class="post-author">
     <a href="#/feeds/<%= post.escape('author').toLowerCase() %>">
       <%= post.escape('author') %>

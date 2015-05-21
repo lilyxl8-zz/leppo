@@ -13,7 +13,7 @@ class Feed < ActiveRecord::Base
 
   def self.update_all
     self.all.each do |feed|
-      feed.get_posts
+      next unless feed.get_posts
     end
   end
 
@@ -39,9 +39,9 @@ class Feed < ActiveRecord::Base
         caption: caption,
         thumb_img: post["images"]["low_resolution"]["url"],
         full_img: post["images"]["standard_resolution"]["url"] )
-      new_post.save
+      return false unless new_post.save
     end
 
-    feed
+    true
   end
 end
