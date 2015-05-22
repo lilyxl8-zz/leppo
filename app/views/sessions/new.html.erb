@@ -2,17 +2,17 @@
   <a href="<%= root_url %>#">
     X
   </a>
-  <h1>Sign In</h1>
 
-  <form action="/session" method="post">
+  <h1 class="brand-title">leppo</h1>
+
+  <form class="login" action="/session" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <label>Email<br>
-      <input name="user[email]" type="text"><br>
-    </label><br>
-    <label>Password<br>
-      <input name="user[password]" type="password"><br>
-    </label><br>
-    <input type="submit" value="Submit"><br>
+    <input class="account-field" name="user[email]" type="text" value placeholder="Email">
+    <input class="account-field" name="user[password]" type="password" value placeholder="Password">
+    <br>
+    <br>
+    <input class="btn account-btn hvr-radial-out" type="submit" value="Sign in">
+
   </form>
 </section>
 

@@ -73,7 +73,7 @@ ul {
   margin: 3px 5px;
 }
 
-.navbar-btn:hover {
+.btn:hover {
   background: black;
   cursor: pointer;
   border-color: #000;
@@ -438,52 +438,63 @@ body {
     top: 0px !important;
     }
 
+/* Form Styling */
+
+.brand-title {
+  font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+  font-size: 48px;
+  font-style: oblique;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 5px;
+  border-bottom: solid 1px #000;
+  width: 300px;
+  padding: 30px 0;
+  margin: 50px auto;
+}
+
+input {
+  display: block;
+  border: none;
+  padding: 5px;
+}
+
+.login {
+  input {
+    margin: 0 auto;
+  }
+
+  input:nth-of-type(2), .signup input:nth-of-type(2) {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top: 1px solid #bbb;
+  }
+
+  input:nth-last-of-type(2), .signup input:nth-last-of-type(2) {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
+
+.account-field {
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  height: 25px;
+  font-size: 16px;
+  width: 230px;
+}
+
+.account-btn {
+  width: 300px;
+  font-size: 22px;
+  height: 40px;
+}
+
 /* Hover Effects */
 
-.hvr-rectangle-out {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  background: white;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-}
-.hvr-rectangle-out:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: black;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-rectangle-out:hover, .hvr-rectangle-out:focus, .hvr-rectangle-out:active {
-  color: white;
-}
-.hvr-rectangle-out:hover:before, .hvr-rectangle-out:focus:before, .hvr-rectangle-out:active:before {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
 
 .hvr-radial-out {
-  display: inline-block;
   vertical-align: middle;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
