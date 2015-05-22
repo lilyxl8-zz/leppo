@@ -1,9 +1,11 @@
-<section class="modal-form">
-  <a href="<%= root_url %>#">
-    X
-  </a>
-
+<section class="modal-form animation-fadein">
   <h1 class="brand-title">leppo</h1>
+
+  <section class="brand-subtitle">
+    Follow leading designers from all over the world.
+    <br>
+    Get inspired.
+  </section>
 
   <form class="login" action="/session" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -12,10 +14,22 @@
     <br>
     <br>
     <input class="btn account-btn hvr-radial-out" type="submit" value="Sign in">
-
+    <br>
   </form>
+
+  <a href="/users/new">
+    <button class='small-btn btn hvr-radial-out'>
+      Sign up
+    </button>
+  </a>
 </section>
 
-<div class="modal-close">
+<div style="position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: 2;
+background-color: #fff;">
 
 </div>

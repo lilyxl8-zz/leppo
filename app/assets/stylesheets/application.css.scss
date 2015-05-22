@@ -73,7 +73,7 @@ ul {
   margin: 3px 5px;
 }
 
-.btn:hover {
+.btn:hover, .btn:focus {
   background: black;
   cursor: pointer;
   border-color: #000;
@@ -388,10 +388,6 @@ ul {
   right: 0;
   z-index: 2;
   background-color: #fff;
-
-
-  .light {
-  }
 }
 
 
@@ -450,7 +446,15 @@ body {
   border-bottom: solid 1px #000;
   width: 300px;
   padding: 30px 0;
-  margin: 50px auto;
+  margin: 50px auto 40px;
+}
+
+.brand-subtitle {
+  margin: 40px auto;
+  position: relative;
+  width: 350px;
+  line-height: 1.5;
+  text-align: center;
 }
 
 input {
@@ -459,15 +463,20 @@ input {
   padding: 5px;
 }
 
+button {
+  position: relative;
+  display: block;
+}
+
 .login {
-  input {
+  input, button {
     margin: 0 auto;
   }
 
   input:nth-of-type(2), .signup input:nth-of-type(2) {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    border-top: 1px solid #bbb;
+    border-top: 1px solid #999;
   }
 
   input:nth-last-of-type(2), .signup input:nth-last-of-type(2) {
@@ -477,9 +486,9 @@ input {
 }
 
 .account-field {
-  border-bottom: 1px solid #bbb;
-  border-left: 1px solid #bbb;
-  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
   height: 25px;
   font-size: 16px;
   width: 230px;
@@ -491,8 +500,32 @@ input {
   height: 40px;
 }
 
-/* Hover Effects */
+.small-btn {
+  margin: 0 auto;
+  width: 150px;
+  font-size: 18px;
+  height: 30px;
+}
 
+/* Fade-in Effects */
+
+.animation-fadein {
+  -webkit-transform: translate3d(1, 0, 0);
+  animation: fadein 1s;
+  -webkit-animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    top: 10%;
+  opacity: 0 }to{ top: 0%; opacity: 1 }
+}
+
+@-webkit-keyframes fadein
+{ from { top: 10%;
+  opacity: 0 }to{ top: 0%; opacity: 1 } }
+
+/* Hover Effects */
 
 .hvr-radial-out {
   vertical-align: middle;
@@ -502,7 +535,6 @@ input {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
   overflow: hidden;
   background: white;
   -webkit-transition-property: color;
