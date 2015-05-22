@@ -18,12 +18,13 @@ b16 = Country.create(name: 'Austria')
 # b9 = Country.create(name: 'Brazil')
 # b14 = Country.create(name: 'Hungary')
 
-c1 = Category.create(title: 'Web')
-c4 = Category.create(title: 'Urban')
-c5 = Category.create(title: 'Destinations')
-c6 = Category.create(title: 'Typography')
-c8 = Category.create(title: 'Food')
-c9 = Category.create(title: 'Home')
+# c1 = Category.create(title: 'Web')
+c4 = Category.create(title: 'Web')
+c5 = Category.create(title: 'Urban')
+c6 = Category.create(title: 'Destinations')
+c8 = Category.create(title: 'Typography')
+c9 = Category.create(title: 'Food')
+# Home
 c10 = Category.create(title: 'Designers')
 # c2 = Category.create(title: 'Mobile')
 # c3 = Category.create(title: 'Watch')
@@ -59,9 +60,9 @@ d5 = Feed.create( ig_user: 'elo_____',
 #                   category_id: 1,
 #                   country_id: 8 )
 
-d8 = Feed.create( ig_user: 'csillaklenyanszki12',
-                  category_id: 6,
-                  country_id: 14 )
+# d8 = Feed.create( ig_user: 'csillaklenyanszki12',
+#                   category_id: 1,
+#                   country_id: 14 )
 
 d9 = Feed.create( ig_user: 'ligature_ch',
                   category_id: 4,
@@ -72,12 +73,12 @@ d10 = Feed.create( ig_user: 'thisisdisplay',
                   country_id: 9 )
 
 d11 = Feed.create( ig_user: 'vanschneider',
-                  category_id: 7,
+                  category_id: 6,
                   country_id: 10 )
 
 
 d12 = Feed.create( ig_user: 'sergeyminkin',
-                  category_id: 7,
+                  category_id: 6,
                   country_id: 1 )
 
 d13 = Feed.create( ig_user: '1800color',
@@ -89,7 +90,7 @@ d14 = Feed.create( ig_user: 'hirozzzz',
                   country_id: 3 )
 
 d15 = Feed.create( ig_user: 'aiww',
-                  category_id: 7,
+                  category_id: 6,
                   country_id: 4 )
 
 d16 = Feed.create( ig_user: 'uberlinco',
