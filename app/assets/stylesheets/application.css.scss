@@ -1,5 +1,6 @@
 // Z-Index
 // .top-nav 1
+// .errors 6
 // .main
 //   .post-item 0
 //   .likes-count 1
@@ -87,6 +88,18 @@ ul {
   content: "";
   display: block;
   clear: both;
+}
+
+.errors {
+  top: 0;
+  position: relative;
+  width: 350px;
+  text-align: center;
+  z-index: 6;
+  margin: 0 auto;
+  padding: 8px 0 10px;
+  background-color: #eee;
+  border-radius: 0 0 10px 10px;
 }
 
 .topnav {
