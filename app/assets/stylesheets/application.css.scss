@@ -168,18 +168,22 @@ ul {
   margin: 0 auto 40px;
   display: block;
   text-align: center;
-  border-bottom: 4px double #000;
+
   transition: all 0.4s ease;
-  width: 300px;
 
   a {
     display: block;
-    padding: 30px 30px 20px;
+    padding: 30px 50px 20px;
   }
-}
 
-.category-title:hover, .country-title:hover {
-  border-color: #999;
+  strong {
+    display: inline-block;
+    border-bottom: 4px double #000;
+  }
+
+  strong:hover {
+    border-color: #999;
+  }
 }
 
 // @font-face {
