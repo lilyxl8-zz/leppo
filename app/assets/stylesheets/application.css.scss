@@ -34,7 +34,7 @@ body {
 a {
   text-decoration: none;
   color: black;
-  transition: all 0.4s ease;
+  transition: color 0.4s ease;
 }
 
 a:hover {
@@ -169,7 +169,7 @@ ul {
   display: block;
   text-align: center;
   border-bottom: 4px double #000;
-  transition: all 0.4s ease;
+  transition: color 0.4s ease;
   width: 300px;
 
   a {
@@ -199,7 +199,7 @@ ul {
   padding: 30px 40px 20px 40px;
   border: 1px solid #fff;
   color: #999;
-  transition: all 0.5s ease;
+  transition: border 0.5s ease;
   z-index: 0;
   margin: 0 1%;
   width: 24%;
@@ -242,7 +242,7 @@ ul {
 
   a {
     color: #999;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
   }
 
   a:hover {
@@ -265,7 +265,7 @@ ul {
   color: #000;
   margin-top: 0;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: margin-top 0.3s ease;
 }
 
 .counters {
