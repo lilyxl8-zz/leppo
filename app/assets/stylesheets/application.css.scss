@@ -404,19 +404,26 @@ ul {
 .modal-img-container {
   span {
     position: relative;
+    text-transform: uppercase;
+    font-size: 18px;
   }
+}
 
-  .modal-post-country {
-    float: left;
-  }
+.modal-post-country {
+  float: left;
+}
 
-  .modal-post-category-main {
-    margin: 0 auto;
-  }
+.modal-post-category-main {
+  margin: 0 auto;
+  display: block;
+  width: 200px;
+  text-align: center;
+  font-family: "playfair display";
+  font-size: 22px;
+}
 
-  .modal-post-author {
-    float: right;
-  }
+.modal-post-author {
+  float: right;
 }
 
 .post-content {

@@ -1,12 +1,35 @@
-<h1>Sign Up</h1>
+<section class="modal-form animation-fadein">
+  <h1 class="brand-title">leppo</h1>
 
-<form action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label>Email<br>
-    <input name="user[email]" type="text"><br>
-  </label><br>
-  <label>Password<br>
-    <input name="user[password]" type="password"><br>
-  </label><br>
-  <input type="submit" value="Submit"><br>
-</form>
+  <section class="brand-subtitle">
+    Follow leading designers from all over the world.
+    <br>
+    Get inspired.
+  </section>
+
+  <form class="login" action="/session" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input class="account-field" name="user[email]" type="text" value placeholder="Email">
+    <input class="account-field" name="user[password]" type="password" value placeholder="Password">
+    <br>
+    <br>
+    <input class="btn account-btn hvr-radial-out" type="submit" value="Sign up">
+    <br>
+  </form>
+
+  <a href="/session/new">
+    <button class='small-btn btn hvr-radial-out'>
+      Sign in
+    </button>
+  </a>
+</section>
+
+<div style="position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: 2;
+background-color: #fff;">
+
+</div>
