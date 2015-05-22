@@ -4,4 +4,8 @@ $(function() {
     $("body").removeClass("modal-is-open");
     $(".modal-form").empty();
   });
+
+  $("body").on("click", ".login-btn", function (event) {
+    $("body").addClass("modal-is-open");
+  });
 });
