@@ -23,6 +23,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
 
   renderBig: function () {
     $("body").toggleClass("modal-is-open");
+    $(".modal-close").addClass("dark-modal");
     var modalContent = this.postModalTemplate({ post: this.model });
     $(".modal-form").html(modalContent);
   },

@@ -169,8 +169,6 @@ ul {
   display: block;
   text-align: center;
 
-  transition: all 0.4s ease;
-
   a {
     display: block;
     padding: 30px 50px 20px;
@@ -179,6 +177,7 @@ ul {
   strong {
     display: inline-block;
     border-bottom: 4px double #000;
+    transition: border-color 0.4s ease;
   }
 
   strong:hover {
@@ -318,10 +317,10 @@ ul {
 .modal {
   // background: white;
   //
-  // position: fixed;
-  // width: 50%;
-  // top: 50%;
-  // left: 50%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
   // margin: -25% 0 0 -25%;
   z-index: 5;
 
@@ -337,15 +336,20 @@ ul {
 }
 
 .modal-is-open #main, .modal-is-open .topnav {
-  -webkit-filter: blur(5px) grayscale(50%) brightness(50%);
-  -moz-filter: blur(5px) grayscale(50%) brightness(50%);
-  -o-filter: blur(5px) grayscale(50%) brightness(50%);
-  -ms-filter: blur(5px) grayscale(50%) brightness(50%);
-  filter: blur(5px) grayscale(50%) brightness(50%);
+  -webkit-filter: blur(5px) grayscale(50%);
+  -moz-filter: blur(5px) grayscale(50%);
+  -o-filter: blur(5px) grayscale(50%);
+  -ms-filter: blur(5px) grayscale(50%);
+  filter: blur(5px) grayscale(50%);
 }
 
-#main, .modal, .topnav {
-  transition: all 0.3s ease;
+#main, .topnav {
+  transition: background 0.3s ease;
+
+}
+
+.modal {
+  transition: opacity 0.3s ease;
 }
 
 .modal-form {
@@ -360,6 +364,7 @@ ul {
   z-index: 3;
   display: block;
   width: 700px;
+  overflow-y: auto;
 }
 
 .modal-close {
@@ -369,6 +374,20 @@ ul {
   left: 0;
   right: 0;
   z-index: 2;
+  background-color: #fff;
+
+
+  .light {
+  }
+}
+
+
+.dark-modal {
+  -webkit-filter: brightness(50%) opacity(90%);
+  -moz-filter: brightness(50%) opacity(90%);
+  -o-filter: brightness(50%) opacity(90%);
+  -ms-filter: brightness(50%) opacity(90%);
+  filter: brightness(50%) opacity(90%);
 }
 
 /* Post Modal */
