@@ -52,13 +52,13 @@ d5 = Feed.create( ig_user: 'elo_____',
                   country_id: 11 )
 
 
-d6 = Feed.create( ig_user: 'madewithmap',
-                  category_id: 5,
-                  country_id: 12 )
+# d6 = Feed.create( ig_user: 'madewithmap',
+#                   category_id: 5,
+#                   country_id: 12 )
 
-d7 = Feed.create( ig_user: 'heystudio',
-                  category_id: 1,
-                  country_id: 13 )
+# d7 = Feed.create( ig_user: 'heystudio',
+#                   category_id: 1,
+#                   country_id: 13 )
 
 d8 = Feed.create( ig_user: 'csillaklenyanszki12',
                   category_id: 9,

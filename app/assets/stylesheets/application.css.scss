@@ -169,7 +169,7 @@ ul {
   display: block;
   text-align: center;
   border-bottom: 4px double #000;
-  transition: color 0.4s ease;
+  transition: all 0.4s ease;
   width: 300px;
 
   a {
@@ -312,13 +312,13 @@ ul {
 /* Modal */
 
 .modal {
-  background: white;
-
-  position: fixed;
-  width: 50%;
-  top: 50%;
-  left: 50%;
-  margin: -25% 0 0 -25%;
+  // background: white;
+  //
+  // position: fixed;
+  // width: 50%;
+  // top: 50%;
+  // left: 50%;
+  // margin: -25% 0 0 -25%;
   z-index: 5;
 
   /* Hidden */
@@ -341,7 +341,7 @@ ul {
 }
 
 #main, .modal, .topnav {
-  transition: all 0.4s ease; /* prefix me */
+  transition: all 0.3s ease;
 }
 
 .modal-form {
@@ -492,8 +492,21 @@ body {
 }
 
 /* Responsive */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+}
 
-@media all and (max-width: 1028px) {
+/* Smartphones (landscape) */
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) */
+@media only screen and (max-width : 320px) {
+/* Styles */
+}
+
+@media all and (max-width: 1172px) {
   .post-item {
     width: 36%;
   }
