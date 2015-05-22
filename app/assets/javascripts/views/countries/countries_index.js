@@ -17,11 +17,13 @@ Leppo.Views.CountriesIndex = Backbone.View.extend({
 
     var that = this;
     this.collection.each(function (country) {
-      var countryView = new Leppo.Views.CountryShow({ model: country });
+      if (country.posts().length > 0) {
+        var countryView = new Leppo.Views.CountryShow({ model: country });
 
-      that.$el.append(
-        countryView.render(false).$el
-      );
+        that.$el.append(
+          countryView.render(false).$el
+        );
+      }
     });
     return this;
   }
