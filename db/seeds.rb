@@ -137,7 +137,7 @@ c6.save!
 c8.save!
 c9.save!
 c10.save!
-c11.save!
+# c11.save!
 # c12.save!
 
 d1.save!
@@ -147,7 +147,7 @@ d3.save!
 d5.save!
 # d6.save!
 # d7.save!
-d8.save!
+# d8.save!
 d9.save!
 d10.save!
 d11.save!
