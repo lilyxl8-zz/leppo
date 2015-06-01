@@ -4,7 +4,6 @@ class Category < ActiveRecord::Base
   has_many :feeds
   has_many :posts, through: :feeds
 
-
   def latest_posts
     if updated_at < 1.day.ago
       feeds.each do |feed|
@@ -14,6 +13,6 @@ class Category < ActiveRecord::Base
   end
 
   def preview_posts
-    return posts[0..6]
+    return posts[0..5]
   end
 end

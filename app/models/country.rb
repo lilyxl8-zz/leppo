@@ -14,6 +14,6 @@ class Country < ActiveRecord::Base
   end
 
   def preview_posts
-    return posts[0..6]
+    return posts[0..5]
   end
 end
