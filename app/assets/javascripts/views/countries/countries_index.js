@@ -19,10 +19,7 @@ Leppo.Views.CountriesIndex = Backbone.View.extend({
     this.collection.each(function (country) {
       if (country.posts().length > 0) {
         var countryView = new Leppo.Views.CountryShow({ model: country });
-
-        that.$el.append(
-          countryView.render(false).$el
-        );
+        that.$el.append(countryView.render().$el);
       }
     });
     return this;

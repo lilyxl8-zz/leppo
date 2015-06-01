@@ -19,7 +19,7 @@ Leppo.Views.CategoriesIndex = Backbone.View.extend({
     this.collection.each(function (category) {
       if (category.posts().length > 0) {
         var categoryView = new Leppo.Views.CategoryShow({ model: category });
-        that.$el.append(categoryView.render(false).$el);
+        that.$el.append(categoryView.render().$el);
       }
     });
     return this;

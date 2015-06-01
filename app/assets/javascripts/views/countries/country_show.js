@@ -24,9 +24,9 @@ Leppo.Views.CountryShow = Backbone.View.extend({
     this.$el.html(renderedContent);
 
     var that = this;
-    var posts = (options) ? this.model.posts() : this.model.posts().slice(0,6);
+    // var posts = (options) ? this.model.posts() : this.model.posts().slice(0,6);
 
-    posts.forEach(function (post) {
+    this.model.posts().forEach(function (post) {
       var postThumb = new Leppo.Views.PostShow({ model: post });
       that.$el.find('.country-posts').append('<li class="post-item" data-id="' + post.get("id") + '">');
       that.$el.find('.post-item').last().append(that.thumbPreCategoryTemplate({ post: post }));
