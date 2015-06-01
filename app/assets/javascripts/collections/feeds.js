@@ -22,5 +22,3 @@ Leppo.Collections.Feeds = Backbone.Collection.extend({
     return feed;
   }
 });
-
-Leppo.Collections.feeds = new Leppo.Collections.Feeds();
