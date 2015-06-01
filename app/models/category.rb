@@ -11,6 +11,9 @@ class Category < ActiveRecord::Base
         feed.get_posts
       end
     end
+  end
 
+  def preview_posts
+    return posts[0..6]
   end
 end

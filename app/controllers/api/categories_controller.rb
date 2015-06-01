@@ -17,9 +17,6 @@ module Api
     end
 
     def index
-      if Feed.first.updated_at < 1.day.ago || Post.all.count < 1
-        Feed.update_all
-      end
       @categories = Category.all
       render :index
     end
