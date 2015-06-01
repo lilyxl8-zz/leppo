@@ -22,3 +22,5 @@ Leppo.Collections.Posts = Backbone.Collection.extend({
     return post;
   }
 });
+
+Leppo.Collections.posts = new Leppo.Collections.Posts();
