@@ -13,6 +13,6 @@ class Category < ActiveRecord::Base
   end
 
   def preview_posts
-    return posts[0..5]
+    return posts[0..3]
   end
 end
