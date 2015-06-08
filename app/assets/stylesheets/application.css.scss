@@ -218,7 +218,7 @@ ul {
   transition: border 0.5s ease;
   z-index: 0;
   margin: 0 1%;
-  width: 36%;
+  width: 400px;
 
   img {
     transition: all 0.3s ease;
@@ -590,6 +590,12 @@ button {
 /* Smartphones (portrait) */
 @media only screen and (max-width : 320px) {
 /* Styles */
+}
+
+@media all and (max-width: 1172px) {
+  .post-item {
+    width: 36%;
+  }
 }
 
 @media all and (max-width: 760px) {
