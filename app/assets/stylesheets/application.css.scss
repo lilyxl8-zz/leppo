@@ -593,9 +593,10 @@ button {
 }
 
 @media all and (max-width: 1172px) {
-  .post-item {
-    width: 36%;
-  }
+  // THREE POSTS PER LINE
+  // .post-item {
+  //   width: 36%;
+  // }
 }
 
 @media all and (max-width: 760px) {
