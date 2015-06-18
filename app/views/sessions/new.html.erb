@@ -22,6 +22,10 @@
       Sign up
     </button>
   </a>
+  <br>
+  <button class='demo small-btn btn hvr-radial-out'>
+    Demo login
+  </button>
 </section>
 
 <div style="position: fixed;
@@ -33,3 +37,15 @@ z-index: 2;
 background-color: #fff;">
 
 </div>
+
+<script>
+  $(function() {
+    $("body").on("click", ".demo", function (event) {
+      event.stopPropagation();
+      event.preventDefault();
+      $(".account-field").first().val("a@a.com");
+      $(".account-field").last().val("password");
+      $(".login").submit();
+    });
+  });
+</script>

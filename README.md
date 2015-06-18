@@ -4,10 +4,17 @@
 
 [heroku]: http://leppo.herokuapp.com
 
-## Minimum Viable Product
-leppo is a Flipboard clone that curates design-related Instagram posts, organized by category and country. (For users: "leppo is the social design magazine that satisfies your wanderlust.") It is built on Rails and Backbone. Users can:
+leppo is a Flipboard clone that curates design-related Instagram posts, organized by category and country. (For users: "leppo is the social design magazine that satisfies your wanderlust.") It is built on Rails and Backbone.
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
+- Load content via Instagram API (via Ruby gem)
+- SASS and CSS animations, jQuery (modal)
+- WebKit blur effects
+- Responsive design
+- API written in Ruby, formatted in JSON using jbuilder
+
+Learning the Instagram API required extensive testing and experimenting to format the response properly for this app.
+
+Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
