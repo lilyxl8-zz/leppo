@@ -1,28 +1,30 @@
 <h1>
-  <%= categories.isNew() ? 'Add Feed' : 'Edit Category' %>
+  <%= feed.isNew() ? 'Add Feed' : 'Edit Category' %>
 </h1>
 
-<label>Instagram Handle<br>
-  <input name="ig_user" type="text"><br>
-</label><br>
-<label>Category ID<br>
-  <input name="category_id" type="text"><br>
-</label><br>
-<label>Country ID<br>
-  <input name="country_id" type="text"><br>
-</label><br>
+<label>
+  <input name="ig_user" type="text" value placeholder="Handle (Instagram)" class="ig-handle-input"><br>
+</label>
+<br>
+
+... to ...
+<br>
+
+<% categories.forEach( function (category) { %>
+  <br>
+    <label for="<%= category.escape('id') %>" class="category-option">
+      <input type="radio" name="category_id" id="<%= category.escape('id') %>" value="<%= category.escape('id') %>" />
+      <%= category.escape('title') %>
+    </label>
+<% }); %>
+<br>
+
+<h3>Owner country</h3>
+<% countries.forEach( function (country) { %>
+  <label class="country-option">
+    <input type="radio" name="country_id" value="<%= country.escape('id') %>" />
+    <%= country.escape('name') %>
+  </label>
+<% }); %>
 <button class="submit">Submit</button>
 <a href='#/'>Back</a>
-
-<!-- <label for='title'>Title</label>
-<br>
-<input type='text' name='title' id='title' value='<%= categories.escape('title') %>'>
-<br>
-<label for='body'>Body</label>
-<br>
-<textarea name='body' id='body'>
-  <%= categories.escape('body') %>
-  </textarea>
-  <br>
-  <button>Submit</button>
-  <a href='#/'>Back</a> -->

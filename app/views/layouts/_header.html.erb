@@ -13,11 +13,9 @@
   <ul class="topnav-menu-right">
   <% if signed_in? %>
     <li>
-      <a href="/#feeds/new" style="padding: 0;">
-        <button class='navbar-btn btn new-category hvr-radial-out'>
-          +
-        </button>
-      </a>
+      <button class='new-feed navbar-btn btn new-category hvr-radial-out'>
+        +
+      </button>
     </li>
     <li>
       <%= button_to "Sign out", session_url, method: :delete, class: "navbar-btn btn hvr-radial-out" %>

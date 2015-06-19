@@ -399,6 +399,32 @@ ul {
   filter: brightness(50%) opacity(90%);
 }
 
+/* New Feed Modal */
+
+.new-feed-form {
+  input {
+    border: solid 1px #eee;
+    border-radius: 4px;
+  }
+}
+
+.ig-handle-input {
+  font-size: 24px;
+  padding: 8px;
+}
+
+.category-option, .country-option {
+  font-size: 20px;
+}
+
+.category-option {
+  font-size: 20px;
+}
+
+.country-option {
+
+}
+
 /* Post Modal */
 
 .modal-img-container {

@@ -43,9 +43,9 @@ d3 = Feed.create( ig_user: 'dubcow',
                   category_id: 5,
                   country_id: 1 )
 
-# d4 = Feed.create( ig_user: '5fruits',
-#                   category_id: 9,
-#                   country_id: 5 )
+d4 = Feed.create( ig_user: '5fruits',
+                  category_id: 3,
+                  country_id: 5 )
 
 d5 = Feed.create( ig_user: 'elo_____',
                   category_id: 2,
