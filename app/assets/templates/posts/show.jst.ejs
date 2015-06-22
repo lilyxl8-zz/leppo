@@ -1,14 +1,5 @@
 
 <section class="modal-img-container">
-  <!-- <span class="modal-post-country">
-    <%= post.escape('country') %>
-  </span>
-  <span class="modal-post-category-main">
-    <%= post.escape('category') %>
-  </span>
-  <span class="modal-post-author">
-    <%= post.escape('author') %>
-  </span> -->
   <img src="<%= post.escape('full_img') %>">
 
   <div class="likes-count">
@@ -21,4 +12,11 @@
   <div class="post-caption">
     <%= post.escape('caption') %>
   </div>
+  <% if (post.escape('comment_count') > 0) { %>
+    <div class="post-comments">
+      <!-- <% post.comments.forEach( function (comment) { %>
+
+      <% }) %> -->
+    </div>
+  <% } %>
 </div>

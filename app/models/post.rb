@@ -26,4 +26,8 @@ class Post < ActiveRecord::Base
   def like_count
     likes.count
   end
+
+  def comment_count
+    comments.count
+  end
 end
