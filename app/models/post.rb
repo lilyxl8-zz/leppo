@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   has_many :likes
   has_many :likers, through: :likes, source: :user
 
+  has_many :comments
+
   def author
     feed.ig_user
   end
