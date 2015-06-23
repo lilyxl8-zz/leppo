@@ -5,7 +5,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
   className: 'post-container',
 
   events: {
-    'click .likes-count': 'toggleLike',
+    'click .icon-heart-empty': 'toggleLike',
     'click .add-comment': 'submitComment'
   },
 
@@ -33,7 +33,6 @@ Leppo.Views.PostShow = Backbone.View.extend({
   },
 
   toggleLike: function (event) {
-    event.stopPropagation();
     event.preventDefault();
 
     $.ajax({

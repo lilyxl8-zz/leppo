@@ -1,14 +1,16 @@
 
 <section class="modal-img-container">
   <img src="<%= post.escape('full_img') %>">
-
-  <div class="likes-count">
-    <i class="icon-heart-empty"></i>
-    <span class="likes-count-num"><%= post.escape('like_count') %></span>
-  </div>
 </section>
 
 <div class="post-content">
+  <div class="likes">
+    <i class="icon-heart-empty pointer"></i>
+    <span class="likes-count-num">
+      <%= post.escape('likers_names') %>
+    </span>
+  </div>
+
   <div class="post-caption">
     <%= post.escape('caption') %>
   </div>
@@ -17,8 +19,7 @@
 
   <form class="comment-form">
     <input type="hidden" name="comment[post_id]" value="<%= post.escape('id') %>">
-    <textarea name='comment[body]' id='body' placeholder='Whoa! This is...'>
-    </textarea><br>
-    <button class="add-comment">Submit</button>
+    <textarea class="comment-body" name='comment[body]' id='body' rows="1"></textarea>
+    <button class="add-comment btn">Submit</button>
   </form>
 </div>
