@@ -1,7 +1,7 @@
 Leppo.Views.CountryShow = Backbone.View.extend({
   template: JST["countries/show"],
   thumbPreCategoryTemplate: JST["posts/_thumbPreCategory"],
-  
+
   tagName: 'ul',
   className: 'country-item group',
 
@@ -14,6 +14,8 @@ Leppo.Views.CountryShow = Backbone.View.extend({
   },
 
   showPost: function (event) {
+    if (event.toElement.className == "icon-heart-empty") { return; }
+    
     var postId = $(event.currentTarget).data("id");
     var post = this.model.posts().get(postId);
     var postView = new Leppo.Views.PostShow({ model: post });

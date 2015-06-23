@@ -7,6 +7,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
 
   events: {
     'click .likes-count': 'toggleLike',
+    'click button': 'submitComment'
   },
 
   initialize: function () {
@@ -47,6 +48,20 @@ Leppo.Views.PostShow = Backbone.View.extend({
         this.model.set(this.model.parse(attrs));
         Leppo.Collections.posts.add(this.model, { merge: true });
       }.bind(this)
+    });
+  },
+
+  submitComment: function (event) {
+    event.preventDefault();
+    var attrs = this.$el.serializeJSON(),
+      that = this;
+
+    this.model.set(attrs);
+    this.model.save({}, {
+      success: function () {
+        that.collection.add(that.model, { merge: true });
+        Backbone.history.navigate("", { trigger: true });
+      }
     });
   }
 });

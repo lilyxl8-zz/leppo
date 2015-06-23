@@ -14,6 +14,8 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
   },
 
   showPost: function (event) {
+    if (event.toElement.className == "icon-heart-empty") { return; }
+    
     var postId = $(event.currentTarget).data("id");
     var post = this.model.posts().get(postId);
     var postView = new Leppo.Views.PostShow({ model: post });
