@@ -1,10 +1,10 @@
 module Api
   class CommentsController < ApiController
     def create
-      @comment = Comment.new(comment_params)
+      @comment = Comment.new(comment_params.merge({ author_id: current_user.id }))
 
       if @comment.save
-        render json: @comment
+        render :show
       else
         render json: @comment.errors.full_messages, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ module Api
 
     private
     def comment_params
-      params.require(:comment).permit(:author_id, :post_id, :body)
+      params.require(:comment).permit(:post_id, :body)
     end
   end
 end

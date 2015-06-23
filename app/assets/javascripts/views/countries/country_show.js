@@ -15,11 +15,11 @@ Leppo.Views.CountryShow = Backbone.View.extend({
 
   showPost: function (event) {
     if (event.toElement.className == "icon-heart-empty") { return; }
-    
+
     var postId = $(event.currentTarget).data("id");
     var post = this.model.posts().get(postId);
     var postView = new Leppo.Views.PostShow({ model: post });
-    postView.renderBig();
+    postView.render();
   },
 
   render: function (options) {
@@ -29,10 +29,10 @@ Leppo.Views.CountryShow = Backbone.View.extend({
     var that = this;
 
     this.model.posts().forEach(function (post) {
-      var postThumb = new Leppo.Views.PostShow({ model: post });
+      var postThumb = new Leppo.Views.PostShowThumb({ model: post });
       that.$el.find('.country-posts').append('<li class="post-item" data-id="' + post.get("id") + '">');
       that.$el.find('.post-item').last().append(that.thumbPreCategoryTemplate({ post: post }));
-      that.$el.find('.post-item').last().append(postThumb.renderThumbCore().$el);
+      that.$el.find('.post-item').last().append(postThumb.render().$el);
     });
     return this;
   }

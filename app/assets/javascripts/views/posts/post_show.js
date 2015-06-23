@@ -1,42 +1,39 @@
 Leppo.Views.PostShow = Backbone.View.extend({
-  thumbCoreTemplate: JST["posts/_thumbCore"],
-  postModalTemplate: JST["posts/show"],
+  template: JST["posts/show"],
 
   tagName: 'section',
-  className: 'post-img',
+  className: 'post-container',
 
   events: {
     'click .likes-count': 'toggleLike',
-    'click button': 'submitComment'
+    'click .add-comment': 'submitComment'
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'change', this.renderThumbCore);
+    this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model.comments(), 'add sync', this.render);
   },
 
-  renderThumbCore: function () {
-    var renderedContent = this.thumbCoreTemplate({
-      post: this.model
-    });
-    this.$el.html(renderedContent);
-    return this;
-  },
-
-  renderBig: function () {
-    $("body").toggleClass("modal-is-open");
+  render: function () {
+    $("body").addClass("modal-is-open");
     $(".modal-close").addClass("dark-modal");
-    var modalContent = this.postModalTemplate({ post: this.model });
-    $(".modal-form").html(modalContent);
+    var postModal = this.template({ post: this.model });
+    this.$el.html(postModal);
 
+    var that = this;
     this.model.comments().forEach( function (comment) {
       var commentShow = new Leppo.Views.CommentShow({
         model: comment
       });
-      $(".post-comments").append(commentShow.render().$el);
+      that.$el.find(".post-comments").append(commentShow.render().$el);
     });
+
+    $(".modal-form").html(this.$el);
+    return this;
   },
 
   toggleLike: function (event) {
+    event.stopPropagation();
     event.preventDefault();
 
     $.ajax({
@@ -52,15 +49,17 @@ Leppo.Views.PostShow = Backbone.View.extend({
   },
 
   submitComment: function (event) {
+    event.stopPropagation();
     event.preventDefault();
-    var attrs = this.$el.serializeJSON(),
+
+    var attrs = this.$el.find(".comment-form").serializeJSON(),
       that = this;
 
-    this.model.set(attrs);
-    this.model.save({}, {
+    var commentModel = new Leppo.Models.Comment();
+    commentModel.set(attrs);
+    commentModel.save({}, {
       success: function () {
-        that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("", { trigger: true });
+        that.model.comments().add(commentModel, { merge: true });
       }
     });
   }
