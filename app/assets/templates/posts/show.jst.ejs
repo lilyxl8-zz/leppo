@@ -17,9 +17,11 @@
   <div class="post-comments">
   </div>
 
-  <form class="comment-form">
-    <input type="hidden" name="comment[post_id]" value="<%= post.escape('id') %>">
-    <textarea class="comment-body" name='comment[body]' id='body' rows="1"></textarea>
-    <button class="add-comment btn">Submit</button>
-  </form>
+  <% if ($('.navbar-btn').last().val() === "Sign out") { %>
+    <form class="comment-form">
+      <input type="hidden" name="comment[post_id]" value="<%= post.escape('id') %>">
+      <textarea class="comment-body" name='comment[body]' id='body' rows="1"></textarea>
+      <button class="add-comment btn">Submit</button>
+    </form>
+  <% } %>
 </div>
