@@ -14,12 +14,18 @@ Leppo.Views.CountryShow = Backbone.View.extend({
   },
 
   showPost: function (event) {
+    event.preventDefault();
+
     if (event.toElement.className == "icon-heart-empty") { return; }
+
+    $("body").addClass("modal-is-open");
+    $(".modal-close").addClass("dark-modal");
 
     var postId = $(event.currentTarget).data("id");
     var post = this.model.posts().get(postId);
     var postView = new Leppo.Views.PostShow({ model: post });
-    postView.render();
+
+    $(".modal-form").html(postView.render().$el);
   },
 
   render: function (options) {

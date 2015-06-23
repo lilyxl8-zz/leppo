@@ -3,7 +3,7 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
   thumbPreCountryTemplate: JST["posts/_thumbPreCountry"],
 
   tagName: 'ul',
-  className: 'country-item group',
+  className: 'category-item group',
 
   events: {
     "click .post-item": "showPost"
@@ -18,10 +18,14 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
 
     if (event.toElement.className == "icon-heart-empty") { return; }
 
+    $("body").addClass("modal-is-open");
+    $(".modal-close").addClass("dark-modal");
+
     var postId = $(event.currentTarget).data("id");
     var post = this.model.posts().get(postId);
     var postView = new Leppo.Views.PostShow({ model: post });
-    postView.render();
+
+    $(".modal-form").html(postView.render().$el);
   },
 
   render: function (options) {

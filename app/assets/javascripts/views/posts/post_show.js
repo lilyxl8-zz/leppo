@@ -15,8 +15,6 @@ Leppo.Views.PostShow = Backbone.View.extend({
   },
 
   render: function () {
-    $("body").addClass("modal-is-open");
-    $(".modal-close").addClass("dark-modal");
     var postModal = this.template({ post: this.model });
     this.$el.html(postModal);
 
@@ -28,7 +26,6 @@ Leppo.Views.PostShow = Backbone.View.extend({
       that.$el.find(".post-comments").append(commentShow.render().$el);
     });
 
-    $(".modal-form").html(this.$el);
     return this;
   },
 
