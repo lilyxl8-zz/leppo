@@ -343,18 +343,22 @@ ul {
   pointer-events: none;
 }
 
-.modal-is-open .modal {
-  opacity: 1;
-  /* Clickable */
-  pointer-events: auto;
-}
+.modal-is-open {
+  overflow: hidden;
 
-.modal-is-open #main, .modal-is-open .topnav {
-  -webkit-filter: blur(5px) grayscale(50%);
-  -moz-filter: blur(5px) grayscale(50%);
-  -o-filter: blur(5px) grayscale(50%);
-  -ms-filter: blur(5px) grayscale(50%);
-  filter: blur(5px) grayscale(50%);
+  .modal {
+    opacity: 1;
+    /* Clickable */
+    pointer-events: auto;
+  }
+
+  #main, .topnav {
+    -webkit-filter: blur(5px) grayscale(50%);
+    -moz-filter: blur(5px) grayscale(50%);
+    -o-filter: blur(5px) grayscale(50%);
+    -ms-filter: blur(5px) grayscale(50%);
+    filter: blur(5px) grayscale(50%);
+  }
 }
 
 #main, .topnav {
@@ -429,28 +433,32 @@ ul {
 /* Post Modal */
 
 .modal-img-container {
-  span {
-    position: relative;
-    text-transform: uppercase;
-    font-size: 18px;
+  display: inline;
+  div {
+    float: left;
   }
 }
 
-.modal-post-country {
-  float: left;
-}
-
-.modal-post-category-main {
-  margin: 0 auto;
-  display: block;
-  width: 200px;
-  text-align: center;
-  font-family: "playfair display";
+.post-left {
+  width: 50%;
   font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 12px;
 }
 
-.modal-post-author {
-  float: right;
+.post-right {
+  font-family: 'Playfair Display';
+  width: 50%;
+  text-align: right;
+  letter-spacing: 1px;
+  padding-top: 2px;
+
+  section {
+    display: inline;
+    border-right: 1px solid #ccc;
+    padding-right: 15px;
+    margin-right: 18px;
+  }
 }
 
 .post-content {
@@ -481,7 +489,7 @@ ul {
 }
 
 .comment-body {
-  width: 600px;
+  width: 87%;
   border: solid 1px #aaa;
   border-radius: 5px;
   font-size: 20px;
@@ -525,7 +533,6 @@ ul {
 input {
   border: none;
   padding: 5px;
-  display: block;
 }
 
 button {
@@ -535,6 +542,7 @@ button {
 
 .login {
   input, button {
+    display: block;
     margin: 0 auto;
   }
 
@@ -575,6 +583,7 @@ button {
 /* Fade-in Effects */
 
 .animation-fadein {
+  overflow: hidden;
   -webkit-transform: translate3d(1, 0, 0);
   animation: fadein 1s;
   -webkit-animation: fadein 1s;

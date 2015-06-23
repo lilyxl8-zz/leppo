@@ -1,5 +1,13 @@
-
 <section class="modal-img-container">
+  <div class="post-left">
+    <%= post.escape('author') %>
+  </div>
+  <div class="post-right">
+    <section>
+      <a href="#/countries/<%= post.escape('country').toLowerCase() %>"><%= post.escape('country') %></a>
+    </section>
+    <a href="#/categories/<%= post.escape('category').toLowerCase() %>"><%= post.escape('category') %></a>
+  </div>
   <img src="<%= post.escape('full_img') %>">
 </section>
 
