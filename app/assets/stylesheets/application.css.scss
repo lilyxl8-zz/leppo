@@ -466,14 +466,23 @@ ul {
 }
 
 .likes {
-  padding-top: 5px;
+  padding-top: 12px;
   font-family: 'open sans';
   font-size: 16px;
+  span {
+    vertical-align: top;
+    line-height: 2;
+  }
+}
+
+.icon-heart {
+  color: #555;
+  font-size: 32px;
 }
 
 .post-caption {
   border-bottom: 1px solid #ccc;
-  padding: 15px 0;
+  padding: 10px 0 15px;
   font-size: 22px;
   font-weight: 300;
 }

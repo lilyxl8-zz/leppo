@@ -5,7 +5,7 @@ Leppo.Views.PostShow = Backbone.View.extend({
   className: 'post-container',
 
   events: {
-    'click .icon-heart-empty': 'toggleLike',
+    'click .icon-heart': 'toggleLike',
     'click .add-comment': 'submitComment'
   },
 

@@ -28,7 +28,7 @@ class Post < ActiveRecord::Base
   end
 
   def likers_names
-    likers.map(&:email)
+    likers.map(&:email).join(", ")
   end
 
   def comment_count
