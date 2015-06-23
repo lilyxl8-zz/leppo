@@ -22,6 +22,6 @@ Rails.application.routes.draw do
       end
     end
     resources :likes, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, except: [:new, :edit]
   end
 end

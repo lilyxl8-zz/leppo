@@ -26,15 +26,14 @@ Leppo.Views.PostShow = Backbone.View.extend({
     $(".modal-close").addClass("dark-modal");
     var modalContent = this.postModalTemplate({ post: this.model });
     $(".modal-form").html(modalContent);
-  },
 
-  // renderBig: function () {
-  //   var renderedContent = this.bigTemplate({
-  //     post: this.model
-  //   });
-  //   this.$el.html(renderedContent);
-  //   return this;
-  // },
+    this.model.comments().forEach( function (comment) {
+      var commentShow = new Leppo.Views.CommentShow({
+        model: comment
+      });
+      $(".post-comments").append(commentShow.render().$el);
+    });
+  },
 
   toggleLike: function (event) {
     event.preventDefault();
