@@ -1,5 +1,11 @@
-<h3 class="country-name">
-  <a href="#/countries/<%= post.escape('country').toLowerCase() %> ">
-    <%= post.escape('country') %>
-  </a>
+<h3 class="group-name">
+  <% if (groupBy === "category") { %>
+    <a href="#/countries/<%= post.escape('country').toLowerCase() %>">
+      <%= post.escape('country') %>
+    </a>
+  <% } else if (groupBy == "country") { %>
+    <a href="#/categories/<%= post.escape('category').toLowerCase() %>">
+      <%= post.escape('category') %>
+    </a>
+  <% } %>
 </h3>

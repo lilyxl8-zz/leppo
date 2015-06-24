@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20150622211211) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title",      null: false
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["title"], name: "index_categories_on_title", unique: true, using: :btree
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "author_id",  null: false

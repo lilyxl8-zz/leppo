@@ -25,7 +25,7 @@ module Api
       if params[:id]
         @category = Category.includes(:feeds).find(params[:id])
       else
-        @category = Category.includes(:feeds).find_by title: params[:title].capitalize
+        @category = Category.includes(:feeds).find_by name: params[:name].capitalize
       end
       render :show
     end
@@ -33,7 +33,7 @@ module Api
     private
 
     def category_params
-      params.require(:category).permit(:title)
+      params.require(:category).permit(:name)
     end
   end
 end

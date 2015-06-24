@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  validates :title, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 
   has_many :feeds
   has_many :posts, through: :feeds

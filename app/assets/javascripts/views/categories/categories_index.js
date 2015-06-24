@@ -1,13 +1,14 @@
 Leppo.Views.CategoriesIndex = Backbone.View.extend({
   template: JST["categories/index"],
   tagName: 'ul',
-  className: 'categories-list',
+  className: 'group-list',
 
   events: {
 
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.groupBy = options.groupBy;
     this.listenTo(this.collection, "sync add remove", this.render);
   },
 
@@ -18,7 +19,10 @@ Leppo.Views.CategoriesIndex = Backbone.View.extend({
     var that = this;
     this.collection.each(function (category) {
       if (category.posts().length > 0) {
-        var categoryView = new Leppo.Views.CategoryShow({ model: category });
+        var categoryView = new Leppo.Views.CategoryShow({
+          groupBy: that.groupBy,
+          model: category
+        });
         that.$el.append(categoryView.render().$el);
       }
     });

@@ -2,17 +2,17 @@ Leppo.Collections.Categories = Backbone.Collection.extend({
   model: Leppo.Models.Category,
   url: '/api/categories',
 
-  getOrFetchTitle: function (title) {
+  getOrFetchName: function (name) {
     var category = this.findWhere({
-      title: title
+      name: name
     }),
       categories = this;
 
     if(!category) {
-      category = new Leppo.Models.Category({ title: title });
+      category = new Leppo.Models.Category({ name: name });
 
       category.fetch({
-        data: { title: title },
+        data: { name: name },
         success: function () {
           categories.add(category);
         },

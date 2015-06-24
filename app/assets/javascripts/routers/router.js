@@ -6,7 +6,7 @@ Leppo.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "categoriesIndex",
     "categories/new": "categoryNew",
-    "categories/:title": "categoryShow",
+    "categories/:name": "categoryShow",
     "countries": "countriesIndex",
     "countries/new": "countryNew",
     "countries/:name": "countryShow",
@@ -29,6 +29,7 @@ Leppo.Routers.Router = Backbone.Router.extend({
     Leppo.Collections.categories.fetch();
 
     var categoriesIndexView = new Leppo.Views.CategoriesIndex({
+      groupBy: "category",
       collection: Leppo.Collections.categories
     });
 
@@ -46,17 +47,21 @@ Leppo.Routers.Router = Backbone.Router.extend({
     this._swapView(newCategoryView);
   },
 
-  categoryShow: function (title) {
-    var category = Leppo.Collections.categories.getOrFetchTitle(title);
+  categoryShow: function (name) {
+    var category = Leppo.Collections.categories.getOrFetchName(name);
 
-    var categoryShowView = new Leppo.Views.CategoryShow({ model: category });
+    var categoryShowView = new Leppo.Views.CategoryShow({
+      groupBy: "category",
+      model: category
+    });
     this._swapView(categoryShowView);
   },
 
   countriesIndex: function () {
     Leppo.Collections.countries.fetch();
 
-    var countriesIndexView = new Leppo.Views.CountriesIndex({
+    var countriesIndexView = new Leppo.Views.CategoriesIndex({
+      groupBy: "country",
       collection: Leppo.Collections.countries
     });
 
@@ -86,7 +91,10 @@ Leppo.Routers.Router = Backbone.Router.extend({
   countryShow: function (name) {
     var country = Leppo.Collections.countries.getOrFetchName(name);
 
-    var countryShowView = new Leppo.Views.CountryShow({ model: country });
+    var countryShowView = new Leppo.Views.CategoryShow({
+      groupBy: "country",
+      model: country
+    });
     this._swapView(countryShowView);
   },
 

@@ -8,13 +8,17 @@ Leppo.Views.PostShowThumb = Backbone.View.extend({
     'click .likes-count': 'toggleLike'
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.groupBy = options.groupBy;
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model.comments(), 'add sync', this.render);
   },
 
   render: function () {
-    var thumbCore = this.template({ post: this.model });
+    var thumbCore = this.template({
+      groupBy: this.groupBy,
+      post: this.model
+    });
     this.$el.html(thumbCore);
     return this;
   },

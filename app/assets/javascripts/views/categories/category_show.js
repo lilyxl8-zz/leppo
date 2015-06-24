@@ -3,13 +3,14 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
   thumbPreCountryTemplate: JST["posts/_thumbPreCountry"],
 
   tagName: 'ul',
-  className: 'category-item group',
+  className: 'group-item group',
 
   events: {
     "click .post-item": "showPost"
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.groupBy = options.groupBy;
     this.listenTo(this.model, 'change sync', this.render);
   },
 
@@ -29,15 +30,24 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
   },
 
   render: function (options) {
-    var renderedContent = this.template({ category: this.model });
+    var renderedContent = this.template({
+      groupBy: this.groupBy,
+      category: this.model
+    });
     this.$el.html(renderedContent);
 
     var that = this;
 
     this.model.posts().forEach(function (post) {
-      var postThumb = new Leppo.Views.PostShowThumb({ model: post });
-      that.$el.find('.category-posts').append('<li class="post-item" data-id="' + post.get("id") + '">');
-      that.$el.find('.post-item').last().append(that.thumbPreCountryTemplate({ post: post }));
+      var postThumb = new Leppo.Views.PostShowThumb({
+        groupBy: this.groupBy,
+        model: post
+      });
+      that.$el.find('.group-posts').append('<li class="post-item" data-id="' + post.get("id") + '">');
+      that.$el.find('.post-item').last().append(that.thumbPreCountryTemplate({
+        groupBy: that.groupBy,
+        post: post
+      }));
       that.$el.find('.post-item').last().append(postThumb.render().$el);
     });
     return this;

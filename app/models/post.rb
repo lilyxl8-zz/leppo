@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
   end
 
   def category
-    feed.category.title
+    feed.category.name
   end
 
   def like_count

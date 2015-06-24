@@ -11,8 +11,8 @@ class Feed < ActiveRecord::Base
   belongs_to :country
   has_many :posts, dependent: :destroy
 
-  def category_title
-    category.title
+  def category_name
+    category.name
   end
 
   def country_name

@@ -1,9 +1,17 @@
-<h2 class="category-title">
+<h2 class="group-title">
   <strong>
-    <a href="#/categories/<%= category.escape('title').toLowerCase() %>"><%= category.escape("title") %></a>
+    <% if (groupBy == "category") { %>
+      <a href="#/categories/<%= category.escape('name').toLowerCase() %>">
+        <%= category.escape("name") %>
+      </a>
+    <% } else if (groupBy == "country") { %>
+      <a href="#/countries/<%= category.escape('name').toLowerCase() %>">
+        <%= category.escape("name") %>
+      </a>
+    <% } %>
   </strong>
 </h2>
 
-<ul class="category-posts group">
+<ul class="group-posts group">
 
 </ul>
