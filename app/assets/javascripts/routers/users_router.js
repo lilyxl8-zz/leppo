@@ -1,9 +1,15 @@
-Leppo.Routers.Router = Backbone.Router.extend({
-  initialize: function (options) {
+Leppo.Routers.Users = Backbone.Router.extend({
+
+  initialize: function(options){
     this.$rootEl = options.$rootEl;
+    this.collection = new Leppo.Collections.Users();
+    this.collection.fetch();
   },
 
   routes: {
+    "users/new": "newUser",
+    "users/:id": "showUser",
+    "session/new": "signIn",
     "": "categoriesIndex",
     "categories/new": "categoryNew",
     "categories/:name": "categoryShow",
@@ -105,9 +111,65 @@ Leppo.Routers.Router = Backbone.Router.extend({
     this._swapView(newFeedView);
   },
 
+  newUser: function(){
+    if (!this._requireSignedOut()) { return; }
+
+    var model = new this.collection.model();
+    var formView = new Leppo.Views.UsersForm({
+      collection: this.collection,
+      model: model
+    });
+    this._swapView(formView);
+  },
+
+  showUser: function(id){
+    var callback = this.show.bind(this, id);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var model = this.collection.getOrFetch(id);
+    var showView = new Leppo.Views.UsersShow({
+      model: model
+    });
+    this._swapView(showView);
+  },
+
+  signIn: function(callback){
+    if (!this._requireSignedOut(callback)) { return; }
+
+    var signInView = new Leppo.Views.SignIn({
+      callback: callback
+    });
+    this._swapView(signInView);
+  },
+
+  _requireSignedIn: function(callback){
+    if (!Leppo.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      this.signIn(callback);
+      return false;
+    }
+
+    return true;
+  },
+
+  _requireSignedOut: function(callback){
+    if (Leppo.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    }
+
+    return true;
+  },
+
+  _goHome: function(){
+    Backbone.history.navigate("", { trigger: true });
+  },
+
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
   }
+
 });

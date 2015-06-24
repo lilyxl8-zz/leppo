@@ -4,7 +4,10 @@ window.Leppo = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new Leppo.Routers.Router({
+    this.currentUser = new Leppo.Models.CurrentUser();
+    this.currentUser.fetch();
+
+    this.router = new Leppo.Routers.Users({
       $rootEl: $("#main")
     });
     Backbone.history.start();
