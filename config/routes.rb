@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'static_pages#root'
 
+  get "/auth/:provider/callback", to: "api/sessions#omniauth"
+
   resources :users, only: [:create, :new]
   resource :session, only: [:create, :new, :destroy]
 
