@@ -42,7 +42,7 @@ a:hover {
   color: #999;
 }
 
-.alert a {
+.alert a, .alert a:visited {
   color: 'navy';
 }
 
@@ -177,6 +177,7 @@ ul {
 
 #main {
   background: #fffeff;
+  margin-bottom: 150px;
 }
 
 .group-list {
@@ -380,7 +381,6 @@ ul {
 
 #main, .topnav {
   transition: background 0.3s ease;
-
 }
 
 .modal {
@@ -490,11 +490,10 @@ ul {
     vertical-align: top;
     line-height: 2;
   }
-}
-
-.icon-heart {
-  color: #555;
-  font-size: 32px;
+  .icon-heart {
+    color: #555;
+    font-size: 32px;
+  }
 }
 
 .post-caption {
@@ -610,6 +609,23 @@ button {
   width: 150px;
   font-size: 18px;
   height: 30px;
+}
+
+footer {
+  border-top: solid 2px black;
+  padding: 50px;
+  text-align: center;
+  font-family: 'open sans';
+  font-weight: 300;
+  letter-spacing: 2px;
+  display: block;
+
+  a {
+    color: #555;
+  }
+  a:hover {
+    color: #000;
+  }
 }
 
 /* Fade-in Effects */
