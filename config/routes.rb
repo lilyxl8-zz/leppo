@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :countries, only: [:index, :create, :show]
     get 'countryShow' => 'countries#show'
 
-    resources :feeds, only: [:index, :create, :update]
+    resources :feeds, only: [:index, :create, :update, :show]
     resources :posts, except: [:new, :edit] do
       collection do
         post :like

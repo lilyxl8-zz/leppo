@@ -2,9 +2,10 @@ Leppo.Views.FeedForm = Backbone.View.extend({
   tagName: 'form',
   className: 'new-feed-form',
   template: JST["feeds/form"],
+  alertTemplate: JST["views/alert"],
 
   events: {
-    'click .submit': 'submit'
+    'click .add-feed': 'submit'
   },
 
   initialize: function (options) {
@@ -34,7 +35,9 @@ Leppo.Views.FeedForm = Backbone.View.extend({
         that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("#", { trigger: true });
         $(".modal-close").click();
-        // TODO add success message
+        $(".topnav").append(that.alertTemplate({
+          model: that.model
+        }));
       }
     });
   }

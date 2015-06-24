@@ -5,8 +5,7 @@ module Api
 
       if @feed.save
         @feed.get_posts
-        flash.now[:errors] = ["Feed added successfully!"]
-        render json: @feed
+        render :show
       else
         flash.now[:errors] = @feed.errors.full_messages
         render json: @feed.errors.full_messages, status: :unprocessable_entity

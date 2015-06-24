@@ -39,6 +39,8 @@
   <% end %>
   </ul>
 </nav>
+
+<%= flash[:errors] %>
 <% if flash[:errors] %>
   <div class="errors">
     <%= flash[:errors].join("<br>").html_safe %>

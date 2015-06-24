@@ -11,6 +11,14 @@ class Feed < ActiveRecord::Base
   belongs_to :country
   has_many :posts, dependent: :destroy
 
+  def category_title
+    category.title
+  end
+
+  def country_name
+    country.name
+  end
+
   def self.update_all
     self.all.each do |feed|
       next unless feed.get_posts
