@@ -25,13 +25,15 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bcrypt'
-gem 'instagram'
 gem 'mime-types'
 gem 'netrc'
 gem 'rdoc'
 gem 'rest-client'
 gem 'ejs'
-gem 'newrelic_rpm'
+gem 'newrelic_rpm' # pinging
+
+gem 'instagram'
+gem 'omniauth_instagram'
 
 group :production do
   gem 'rails_12factor'
