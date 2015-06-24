@@ -4,11 +4,16 @@
       <a class="topnav-brand-logo" href="/#"><i>l</i></a>
     </figure>
     <li>
-      <a href="#">Following</a>
+      <a href="#"><i class="fa fa-folder-o"></i> Following</a>
     </li>
     <li>
-      <a href="#/countries">Countries</a>
+      <a href="#/countries"><i class="fa fa-flag-o"></i> Countries</a>
     </li>
+    <% if signed_in? %>
+    <li>
+      <a href="#/liked"><i class="fa fa-heart-o"></i> Liked</a>
+    </li>
+    <% end %>
   </ul>
   <ul class="topnav-menu-right">
   <% if signed_in? %>
