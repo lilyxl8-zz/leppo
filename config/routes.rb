@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     resources :feeds, only: [:index, :create, :update, :show]
     resources :posts, except: [:new, :edit] do
       collection do
-        post :like
+        post :toggle_like
+        get :liked_posts
       end
     end
     resources :likes, only: [:create, :destroy]

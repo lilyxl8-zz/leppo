@@ -20,6 +20,25 @@ Leppo.Collections.Posts = Backbone.Collection.extend({
       post.fetch();
     }
     return post;
+  },
+
+  fetchLiked: function() {
+    var that = this;
+    $.ajax({
+      url: "api/posts/liked_posts",
+      type: "GET",
+      success: function (attrs) {
+        attrs.forEach( function (post) {
+          var postModel = that.getOrFetch(post.id);
+          Leppo.Collections.likedPosts.add(postModel, { merge: true });
+        });
+      },
+      error: function (attrs) {
+        debugger;
+        // this.model.set(this.model.parse(attrs));
+        // Leppo.Collections.posts.add(this.model, { merge: true });
+      }.bind(this)
+    });
   }
 });
 

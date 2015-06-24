@@ -2,16 +2,6 @@ module Api
   class PostsController < ApiController
     before_action :require_signed_in!, only: [:like, :liked_posts]
 
-    def create
-      @post = Post.new(post_params)
-
-      if @post.save
-        render json: @post
-      else
-        render json: @post.errors.full_messages, status: :unprocessable_entity
-      end
-    end
-
     def index
       @posts = Post.all
       render :index

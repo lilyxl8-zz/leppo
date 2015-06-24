@@ -1,9 +1,9 @@
 <h3 class="group-name">
-  <% if (groupBy === "category") { %>
+  <% if (groupBy === "category" || groupBy === "liked") { %>
     <a href="#/countries/<%= post.escape('country').toLowerCase() %>">
       <%= post.escape('country') %>
     </a>
-  <% } else if (groupBy == "country") { %>
+  <% } else if (groupBy == "country" || groupBy === "liked") { %>
     <a href="#/categories/<%= post.escape('category').toLowerCase() %>">
       <%= post.escape('category') %>
     </a>

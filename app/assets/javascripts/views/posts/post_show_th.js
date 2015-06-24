@@ -26,8 +26,10 @@ Leppo.Views.PostShowThumb = Backbone.View.extend({
   toggleLike: function (event) {
     event.preventDefault();
 
+    
+
     $.ajax({
-      url: "api/posts/like",
+      url: "api/posts/toggle_like",
       type: "POST",
       data: {
         post_id: this.model.id

@@ -8,6 +8,8 @@
       <a href="#/countries/<%= category.escape('name').toLowerCase() %>">
         <%= category.escape("name") %>
       </a>
+    <% } else if (groupBy == "liked") { %>
+      <a>Liked</a>
     <% } %>
   </strong>
 </h2>

@@ -17,7 +17,7 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
   showPost: function (event) {
     event.preventDefault();
 
-    if (event.toElement.className == "icon-heart-empty") { return; }
+    if (event.toElement.className == "fa fa-heart-o") { return; }
 
     $("body").addClass("modal-is-open");
     $(".modal-close").addClass("dark-modal");
@@ -37,8 +37,9 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
     this.$el.html(renderedContent);
 
     var that = this;
+    var coll = (this.groupBy === "liked") ? this.model : this.model.posts();
 
-    this.model.posts().forEach(function (post) {
+    coll.forEach(function (post) {
       var postThumb = new Leppo.Views.PostShowThumb({
         groupBy: this.groupBy,
         model: post
