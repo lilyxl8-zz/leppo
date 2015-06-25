@@ -3,6 +3,7 @@ Leppo.Views.SignUp = Backbone.View.extend({
   className: "modal-form animation-fadein",
 
   template: JST['users/new'],
+  errorTemplate: JST['users/error'],
 
   events: {
     "submit form": "submit"
@@ -33,10 +34,11 @@ Leppo.Views.SignUp = Backbone.View.extend({
         that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("", { trigger: true });
       },
-      error: function(data){
-        alert("Form invalid. Let the user know what went wrong.");
-        console.log(data);
-      }
+      error: function(model, response, options){
+        $(".modal-form").prepend(this.errorTemplate({
+          errors: response.responseJSON
+        }));
+      }.bind(this)
     });
   }
 

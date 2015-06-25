@@ -2,7 +2,8 @@ Leppo.Views.SignIn = Backbone.View.extend({
   tagName: "section",
   className: "modal-form animation-fadein",
 
-  template: JST['shared/sign_in'],
+  template: JST['sessions/new'],
+  errorTemplate: JST['sessions/error'],
 
   events: {
     "submit form": "submit"
@@ -14,6 +15,7 @@ Leppo.Views.SignIn = Backbone.View.extend({
   },
 
   render: function(){
+    // $(".topnav").find(".errors").remove();
     this.$el.html(this.template());
     return this;
   },
@@ -27,8 +29,8 @@ Leppo.Views.SignIn = Backbone.View.extend({
       email: formData.email,
       password: formData.password,
       error: function(){
-        alert("Wrong username/password combination. Please try again.");
-      }
+        $(".modal-form").prepend(this.errorTemplate());
+      }.bind(this)
     });
   },
 

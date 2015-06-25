@@ -105,6 +105,30 @@ ul {
   font-family: 'open sans';
 }
 
+.errors {
+  position: fixed;
+  top: 0;
+  transform: translateX(33%);
+  margin: 0 auto;
+  width: 400px;
+  padding: 5px 8px 8px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #eee;
+  font-weight: 300;
+  font-size: 14px;
+  font-family: 'open sans';
+  line-height: 1.4;
+}
+}
+
+.error-list {
+  list-style: disc;
+  text-align: left;
+  font-size: 12px;
+  padding: 5px 0 0 78px;
+}
+
 .new-category {
   font-size: 25px;
   padding: 5px 12px 5px 11px;
@@ -114,18 +138,6 @@ ul {
   content: "";
   display: block;
   clear: both;
-}
-
-.errors {
-  top: 0;
-  position: relative;
-  width: 350px;
-  text-align: center;
-  z-index: 6;
-  margin: 0 auto;
-  padding: 8px 0 10px;
-  background-color: #eee;
-  border-radius: 0 0 10px 10px;
 }
 
 .topnav {

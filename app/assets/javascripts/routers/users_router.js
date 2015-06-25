@@ -21,7 +21,10 @@ Leppo.Routers.Users = Backbone.Router.extend({
   },
 
   categoriesIndex: function () {
-    Leppo.Collections.categories.fetch();
+    if (typeof Leppo.Collections.categories === "undefined") {
+      Leppo.Collections.categories = new Leppo.Collections.Categories();
+      Leppo.Collections.categories.fetch();
+    }
 
     var categoriesIndexView = new Leppo.Views.CategoriesIndex({
       groupBy: "category",
