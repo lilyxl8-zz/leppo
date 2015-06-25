@@ -15,7 +15,6 @@ Leppo.Views.SignIn = Backbone.View.extend({
   },
 
   render: function(){
-    // $(".topnav").find(".errors").remove();
     this.$el.html(this.template());
     return this;
   },

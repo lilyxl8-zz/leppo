@@ -26,10 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bcrypt'
 gem 'mime-types'
-gem 'netrc'
+gem 'netrc', '~> 0.7.7'
 gem 'rdoc'
 gem 'rest-client'
 gem 'ejs'
+gem 'rest_client'
 gem 'newrelic_rpm' # pinging
 
 gem 'instagram'
