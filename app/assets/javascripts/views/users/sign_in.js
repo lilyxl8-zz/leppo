@@ -1,19 +1,20 @@
 Leppo.Views.SignIn = Backbone.View.extend({
+  tagName: "section",
+  className: "modal-form animation-fadein",
+
+  template: JST['shared/sign_in'],
+
+  events: {
+    "submit form": "submit"
+  },
 
   initialize: function(options){
     this.callback = options.callback;
     this.listenTo(Leppo.currentUser, "signIn", this.signInCallback);
   },
 
-  events: {
-    "submit form": "submit"
-  },
-
-  template: JST['shared/sign_in'],
-
   render: function(){
     this.$el.html(this.template());
-
     return this;
   },
 

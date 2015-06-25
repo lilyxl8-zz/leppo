@@ -51,6 +51,9 @@ Leppo.Views.CategoryShow = Backbone.View.extend({
       }));
       that.$el.find('.post-item').last().append(postThumb.render().$el);
     });
+
+    $("body").removeClass("modal-is-open");
+
     return this;
   }
 });

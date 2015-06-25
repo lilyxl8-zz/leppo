@@ -1,0 +1,46 @@
+<ul class="topnav-menu-left">
+  <figure class="topnav-brand">
+    <a class="topnav-brand-logo" href="/#"><i>l</i></a>
+  </figure>
+  <li>
+    <a href="#"><i class="fa fa-folder-o"></i> Following</a>
+  </li>
+  <li>
+    <a href="#/countries"><i class="fa fa-flag-o"></i> Countries</a>
+  </li>
+  <% if(Leppo.currentUser.isSignedIn()) { %>
+    <li>
+      <a href="#/liked"><i class="fa fa-heart-o"></i> Liked</a>
+    </li>
+  <% } %>
+</ul>
+<ul class="topnav-menu-right">
+  <% if(Leppo.currentUser.isSignedIn()) { %>
+    <li>
+      <button class='new-feed navbar-btn btn new-category hvr-radial-out'>
+        +
+      </button>
+    </li>
+    <li>
+      <a href="#" id="sign-out-link">
+        <button class="navbar-btn btn hvr-radial-out">Sign out</button>
+      </a>
+    </li>
+
+  <% } else { %>
+    <li>
+      <a href="#signin">
+        <button class='navbar-btn btn hvr-radial-out login-btn'>
+          Sign in
+        </button>
+      </a>
+    </li>
+    <li>
+      <a href="#signup">
+        <button class='navbar-btn btn hvr-radial-out'>
+          Sign up
+        </button>
+      </a>
+    </li>
+  <% } %>
+</ul>

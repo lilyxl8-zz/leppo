@@ -33,7 +33,7 @@ gem 'ejs'
 gem 'newrelic_rpm' # pinging
 
 gem 'instagram'
-gem 'omniauth_instagram'
+gem 'omniauth-instagram'
 
 group :production do
   gem 'rails_12factor'

@@ -7,9 +7,9 @@ Leppo.Routers.Users = Backbone.Router.extend({
   },
 
   routes: {
-    "users/new": "newUser",
     "users/:id": "showUser",
-    "session/new": "signIn",
+    "signin": "signIn",
+    "signup": "signUp",
     "": "categoriesIndex",
     "categories/new": "categoryNew",
     "categories/:name": "categoryShow",
@@ -111,15 +111,17 @@ Leppo.Routers.Users = Backbone.Router.extend({
     this._swapView(newFeedView);
   },
 
-  newUser: function(){
+  signUp: function(){
     if (!this._requireSignedOut()) { return; }
 
     var model = new this.collection.model();
-    var formView = new Leppo.Views.UsersForm({
+    var formView = new Leppo.Views.SignUp({
       collection: this.collection,
       model: model
     });
     this._swapView(formView);
+
+    $("body").addClass("sign-page");
   },
 
   showUser: function(id){
@@ -139,7 +141,9 @@ Leppo.Routers.Users = Backbone.Router.extend({
     var signInView = new Leppo.Views.SignIn({
       callback: callback
     });
+
     this._swapView(signInView);
+    $("body").addClass("sign-page");
   },
 
   _requireSignedIn: function(callback){
@@ -167,6 +171,7 @@ Leppo.Routers.Users = Backbone.Router.extend({
   },
 
   _swapView: function (view) {
+    $("body").removeClass("sign-page");
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);

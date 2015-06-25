@@ -1,10 +1,18 @@
 // Z-Index
 // .top-nav 1
 // .errors 6
-// .main
+// .main 0
 //   .post-item 0
 //   .likes-count 1
 // .modal 5
+//   .modal-form 3
+//   .modal-close 2
+
+
+//   .main 2
+//   .post-item 0
+//   .likes-count 1
+// .modal 1
 //   .modal-form 3
 //   .modal-close 2
 
@@ -379,6 +387,12 @@ ul {
   }
 }
 
+.sign-page {
+  .topnav, footer {
+    display: none;
+  }
+}
+
 #main, .topnav {
   transition: background 0.3s ease;
 }
@@ -571,19 +585,19 @@ button {
   display: block;
 }
 
-.login {
+.login, .signup {
   input, button {
     display: block;
     margin: 0 auto;
   }
 
-  input:nth-of-type(2), .signup input:nth-of-type(2) {
+  input:first-of-type, .signup input:first-of-type {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-top: 1px solid #999;
   }
 
-  input:nth-last-of-type(2), .signup input:nth-last-of-type(2) {
+  input:last-of-type, .signup input:last-of-type {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
   }
