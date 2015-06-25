@@ -1,9 +1,15 @@
-Leppo.Routers.Router = Backbone.Router.extend({
-  initialize: function (options) {
+Leppo.Routers.Users = Backbone.Router.extend({
+
+  initialize: function(options){
     this.$rootEl = options.$rootEl;
+    this.collection = new Leppo.Collections.Users();
+    this.collection.fetch();
   },
 
   routes: {
+    "users/:id": "showUser",
+    "signin": "signIn",
+    "signup": "signUp",
     "": "categoriesIndex",
     "categories/new": "categoryNew",
     "categories/:name": "categoryShow",
@@ -14,19 +20,11 @@ Leppo.Routers.Router = Backbone.Router.extend({
     "liked": "likedShow"
   },
 
-  edit: function (id) {
-    var category = Leppo.Collections.categories.getOrFetch(id);
-
-    var categoryEditView = new Leppo.Views.CategoryForm({
-      model: category,
-      collection: Leppo.Collections.categories
-    });
-
-    this._swapView(categoryEditView);
-  },
-
   categoriesIndex: function () {
-    Leppo.Collections.categories.fetch();
+    if (typeof Leppo.Collections.categories === "undefined") {
+      Leppo.Collections.categories = new Leppo.Collections.Categories();
+      Leppo.Collections.categories.fetch();
+    }
 
     var categoriesIndexView = new Leppo.Views.CategoriesIndex({
       groupBy: "category",
@@ -116,9 +114,70 @@ Leppo.Routers.Router = Backbone.Router.extend({
     this._swapView(newFeedView);
   },
 
+  signUp: function(){
+    if (!this._requireSignedOut()) { return; }
+
+    var model = new this.collection.model();
+    var formView = new Leppo.Views.SignUp({
+      collection: this.collection,
+      model: model
+    });
+    this._swapView(formView);
+
+    $("body").addClass("sign-page");
+  },
+
+  showUser: function(id){
+    var callback = this.show.bind(this, id);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var model = this.collection.getOrFetch(id);
+    var showView = new Leppo.Views.UsersShow({
+      model: model
+    });
+    this._swapView(showView);
+  },
+
+  signIn: function(callback){
+    if (!this._requireSignedOut(callback)) { return; }
+
+    var signInView = new Leppo.Views.SignIn({
+      callback: callback
+    });
+
+    this._swapView(signInView);
+    $("body").addClass("sign-page");
+  },
+
+  _requireSignedIn: function(callback){
+    if (!Leppo.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      this.signIn(callback);
+      return false;
+    }
+
+    return true;
+  },
+
+  _requireSignedOut: function(callback){
+    if (Leppo.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    }
+
+    return true;
+  },
+
+  _goHome: function(){
+    Backbone.history.navigate("", { trigger: true });
+  },
+
   _swapView: function (view) {
+    $("body").removeClass("sign-page");
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);
   }
+
 });

@@ -40,5 +40,3 @@ Leppo.Collections.Categories = Backbone.Collection.extend({
     return category;
   }
 });
-
-Leppo.Collections.categories = new Leppo.Collections.Categories();

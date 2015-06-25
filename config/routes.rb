@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'static_pages#root'
 
+  get "/auth/:provider/callback", to: "api/sessions#omniauth"
+
   resources :users, only: [:create, :new]
   resource :session, only: [:create, :new, :destroy]
 
@@ -9,6 +11,9 @@ Rails.application.routes.draw do
   # resources :categories, only: [:new, :create, :show]
 
   namespace :api, defaults: { format: :json } do
+    resource :session, only: [:show, :create, :destroy]
+    resources :users, only: [:index, :show, :create]
+
     resources :categories, only: [:index, :create, :show]
     get 'categoryShow' => 'categories#show'
 
@@ -22,7 +27,6 @@ Rails.application.routes.draw do
         get :liked_posts
       end
     end
-    resources :likes, only: [:create, :destroy]
     resources :comments, except: [:new, :edit]
   end
 end
